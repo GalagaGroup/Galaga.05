@@ -12,36 +12,32 @@ int main(int argc, char ** argv)
     Starfighter star;
 
 
-
-    SDL_Plotter g(ROW_MAX, COL_MAX);
-
+    SDL_Plotter g(ROW_MAX, COL_MAX, true);
     for(int i = 0; i < ROW_MAX; i++){
             for(int j = 0; j < COL_MAX; j++){
                 g.plotPixel(i , j, 0, 0, 0);
             }
         }
 
-
-    char square [12][12] =  {'W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q',
-                           'W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q',
-                           'W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q',
-                           'W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q',
-                           'W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q',
-                           'W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q','W', 'W', 'Q', 'Q',
-                           'B', 'B', 'R', 'R','B', 'B', 'R', 'R','B', 'B', 'R', 'R',
-                           'B', 'B', 'R', 'R','B', 'B', 'R', 'R','B', 'B', 'R', 'R',
-                           'B', 'B', 'R', 'R','B', 'B', 'R', 'R','B', 'B', 'R', 'R',
-                           'B', 'B', 'R', 'R','B', 'B', 'R', 'R','B', 'B', 'R', 'R',
-                           'B', 'B', 'R', 'R','B', 'B', 'R', 'R','B', 'B', 'R', 'R',
-                           'B', 'B', 'R', 'R','B', 'B', 'R', 'R','B', 'B', 'R', 'R',};
     while (!g.getQuit())
     {
-       star.draw(g);
 
+        char key_Pressed;
         if(g.kbhit()){
-			g.getKey();
-		}
+			key_Pressed = g.getKey();
+			cout << key_Pressed << endl;
+			if(key_Pressed == LEFT_ARROW){
+                star.eraseShip(g);
+                star.moveShip(-1, g);
+                //star.eraseShip(g, false);
+			}else if(key_Pressed == RIGHT_ARROW){
+                star.eraseShip(g);
+                star.moveShip(1, g);
+                //star.eraseShip(g, false);
+            }
 
+		}
+        star.draw(g);
 		g.update();
     }
 }

@@ -62,6 +62,23 @@ Starfighter::Starfighter()
         }
  }
 
+ void Starfighter::moveShip(int a, SDL_Plotter &g){
+    if(a == -1){
+        posx = posx - 5;
+    }else if(a == 1){
+        posx = posx + 5;
+    }
+    draw(g);
+ }
+
+ void Starfighter::eraseShip(SDL_Plotter &g){
+    for(int j = 0; j < 30; j++){
+        for(int i = 0; i < 34; i++){
+                g.plotPixel(posx + i, posy + j, 0, 0, 0);
+        }
+    }
+}
+
 Starfighter::~Starfighter()
 {
     //dtor
