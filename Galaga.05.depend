@@ -465,3 +465,27 @@
 1524091152 source:h:\galaga.05\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
+1524095624 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\main.cpp
+	<iostream>
+	"SDL_Plotter.h"
+	"Starfighter.h"
+
+1524091140 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl_plotter.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<string.h>
+	<iostream>
+	<string>
+	<string.h>
+	<map>
+
+1524095116 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.h
+	<string.h>
+	"SDL_Plotter.h"
+
+1524091154 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl_plotter.cpp
+	"SDL_Plotter.h"
+
+1524095116 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.cpp
+	"Starfighter.h"
+
