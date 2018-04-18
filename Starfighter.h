@@ -21,6 +21,10 @@ class Starfighter
         int getposX();
         int getposY();
         void draw(SDL_Plotter &g);
+<<<<<<< HEAD
+=======
+        void eraseShip(SDL_Plotter &g);
+>>>>>>> 35807ec1d76225d4d8f287a05b318c278ed2e46b
         void moveShip(int a, SDL_Plotter &g);
 
     protected:

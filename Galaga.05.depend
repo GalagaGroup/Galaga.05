@@ -1,5 +1,9 @@
 # depslib dependency file v1.0
+<<<<<<< HEAD
 1524092467 source:h:\galaga.05\main.cpp
+=======
+1524095120 source:h:\galaga.05\main.cpp
+>>>>>>> 35807ec1d76225d4d8f287a05b318c278ed2e46b
 	<iostream>
 	"SDL_Plotter.h"
 	"Starfighter.h"
@@ -455,11 +459,19 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
 1524092460 h:\galaga.05\starfighter.h
 	<string.h>
 	"SDL_Plotter.h"
 
 1524092460 source:h:\galaga.05\starfighter.cpp
+=======
+1524095114 h:\galaga.05\starfighter.h
+	<string.h>
+	"SDL_Plotter.h"
+
+1524095114 source:h:\galaga.05\starfighter.cpp
+>>>>>>> 35807ec1d76225d4d8f287a05b318c278ed2e46b
 	"Starfighter.h"
 
 1524091152 source:h:\galaga.05\sdl_plotter.cpp
