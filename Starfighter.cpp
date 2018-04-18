@@ -62,6 +62,11 @@ Starfighter::Starfighter()
         }
  }
 
+ void Starfighter::moveShip(int a, SDL_Plotter &g){
+    posx += a;
+    draw(g);
+ }
+
 Starfighter::~Starfighter()
 {
     //dtor

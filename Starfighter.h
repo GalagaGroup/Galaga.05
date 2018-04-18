@@ -21,7 +21,7 @@ class Starfighter
         int getposX();
         int getposY();
         void draw(SDL_Plotter &g);
-        //void move
+        void moveShip(int a, SDL_Plotter &g);
 
     protected:
 
