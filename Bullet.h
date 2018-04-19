@@ -1,4 +1,3 @@
-
 #ifndef BULLET_H_
 #define BULLET_H_
 
