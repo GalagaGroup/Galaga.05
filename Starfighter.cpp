@@ -4,7 +4,7 @@ Starfighter::Starfighter()
 {
     health = 1;
     posx = 400;
-    posy = 900;
+    posy = 700;
     char graphic[34][30] = {  'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
                                         'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
                                         'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
@@ -68,8 +68,10 @@ Starfighter::Starfighter()
  }
 
  void Starfighter::eraseShip(SDL_Plotter &g, int x, int y){
+         //cout << "Before: " << endl;
         for(int i = 0; i < 30; i++){
             for(int j = 0; j < 34; j++){
+                     //cout << x + i << " " << y + j << endl;
                         g.plotPixel(x + i, y + j, 0, 0, 0);
             }
         }

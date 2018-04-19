@@ -41,7 +41,10 @@ int main(int argc, char ** argv)
                 bull.posy = star.posy;
                 bullet = true;
             }
+            cout << "start:" << endl;
+            cout << star.posy << endl;
             star.eraseShip(g, star.posx, star.posy);
+            cout << "End: " << endl;
             star.moveShip(movement, g);
         }
 
