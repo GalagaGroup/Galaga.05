@@ -1186,22 +1186,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1524100281 source:c:\users\diego\documents\github\galaga.05\main.cpp
+1524100507 source:c:\users\diego\documents\github\galaga.05\main.cpp
 	<iostream>
 	"SDL_Plotter.h"
 	"Starfighter.h"
 	"Bullet.h"
 
-1524100327 c:\users\diego\documents\github\galaga.05\starfighter.h
+1524100755 c:\users\diego\documents\github\galaga.05\starfighter.h
 	<string.h>
 	"SDL_Plotter.h"
 
-1524099683 source:c:\users\diego\documents\github\galaga.05\starfighter.cpp
+1524100803 source:c:\users\diego\documents\github\galaga.05\starfighter.cpp
 	"Starfighter.h"
 
-<<<<<<< HEAD
-1524100405 c:\users\diego\documents\github\galaga.05\bullet.h
-=======
+1524099683 D
+
+1524100792 c:\users\diego\documents\github\galaga.05\bullet.h
+
 1524100325 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\bullet.h
->>>>>>> 9e3f89fdad2caf1bf728d1356e73b3fe02db2fc6
+
+1524100325 f89fdad2caf1bf728d1356e73b3fe02db2fc6
 

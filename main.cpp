@@ -23,9 +23,6 @@ int main(int argc, char ** argv)
     {
         //get input
 
-       star.moveShip(5, g);
-
-
         //get input and move charactor
         if(g.kbhit()){
             g.getKey();
@@ -42,10 +39,9 @@ int main(int argc, char ** argv)
 
        star.moveShip(5, g);
 
-
-
-
         star.draw(g);
+
+        star.eraseShip(g, star.posx, star.posy);
 		g.update();
     }
 }

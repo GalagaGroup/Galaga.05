@@ -67,10 +67,10 @@ Starfighter::Starfighter()
     draw(g);
  }
 
- void eraseShip(SDL_Plotter &g){
+ void eraseShip(SDL_Plotter &g, int x, int y){
         for(int j = 0; j < 30; j++){
             for(int i = 0; i < 34; i++){
-                        g.plotPixel(posx + i, posy + j, 0, 0, 0);
+                        g.plotPixel(x + i, y + j, 0, 0, 0);
             }
         }
  }
