@@ -27,21 +27,26 @@ int main(int argc, char ** argv)
         if(g.kbhit()){
             g.getKey();
             key_pressed = g.getKey();
+            star.eraseShip(*g, star.posx, star.posy);
             if(key_pressed == RIGHT_ARROW && star.posx <= 720){
                 star.moveShip(5, g);
             }
             else if(key_pressed == LEFT_ARROW && star.posx >= 50){
                 star.moveShip(-5, g);
             }else if(key_pressed == ' '){
-                Bullet bull(star.posx, star.posy);
+                Bullet bull;
+                bull.posx = star.posx;
+                bull.posy = star.posy;
+                Bullet bull(bull.posx, bull.posy);
             }
         }
 
        star.moveShip(5, g);
 
         star.draw(g);
+        bull.draw(g);
 
-        star.eraseShip(g, star.posx, star.posy);
+
 		g.update();
     }
 }
