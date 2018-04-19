@@ -2,6 +2,7 @@
 
 #include "SDL_Plotter.h"
 #include "Starfighter.h"
+#include "Bullet.h"
 
 using namespace std;
 
@@ -20,13 +21,15 @@ int main(int argc, char ** argv)
 
     while (!g.getQuit())
     {
-       star.draw(g);
+        //get input
+
        star.moveShip(5, g);
 
         if(g.kbhit()){
 			g.getKey();
 		}
 
+        star.draw(g);
 		g.update();
     }
 }
