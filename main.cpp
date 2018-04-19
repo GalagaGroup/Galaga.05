@@ -37,8 +37,8 @@ int main(int argc, char ** argv)
                 movement = -7;
             }
             else if(key_pressed == ' '){
-                bull.posx = star.posx;
-                bull.posy = star.posy;
+                bull.posx = 100;
+                bull.posy = 100;
                 bullet = true;
             }
             cout << "start:" << endl;
@@ -52,13 +52,16 @@ int main(int argc, char ** argv)
 
         star.draw(g);
         if(bullet){
-                if(bullet.posy > 4){
-                    bull.posy = bull.posy - 4;
+                if(bull.posy > 4){
+                    bull.eraseShip(g, bull.posx, bull.posy);
+                    bull.posx = bull.posx - 10;
+                    bull.draw(g);
                 }
                 else{
-                    ~bullet(g, bull.posx, bull.posy);
+                    bull.eraseShip(g, bull.posx, bull.posy);
+                    ~bullet;
                 }
-            bull.draw(g);
+
         }
 
 
@@ -66,4 +69,5 @@ int main(int argc, char ** argv)
 
 		g.update();
     }
+    return 0;
 }
