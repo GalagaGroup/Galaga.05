@@ -7,7 +7,7 @@ class Bullet{
 public:
 	 int posx;
 	 int posy;
-	bool state = true;
+	//bool state = true;
 	const char pic[16][6] = {	     'B', 'B', 'Q', 'Q', 'B', 'B',
 									 'B', 'B', 'Q', 'Q', 'B', 'B',
                                      'B', 'B', 'Q', 'Q', 'B', 'B',
@@ -33,7 +33,7 @@ public:
 	void setY(int y);
 	int getX();
 	int getY();
-	draw(SDL_Plotter &g);
+	void draw(SDL_Plotter &g);
 };
 
 #endif // BULLET_H_

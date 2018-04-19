@@ -8,19 +8,19 @@ Bullet::Bullet(int x, int y){
 		posy = y;
 }
 
-Bullet::draw(SDL_Plotter &g){
+void Bullet::draw(SDL_Plotter &g){
 	for(int j = 0; j < 6; j++){
             for(int i = 0; i < 16; i++){
                     if (pic[i][j] == 'B'){
                         //its black
                     }else if(pic[i][j] == 'R'){
-                        g.plotPixel(j + posx, i + 700, 255, 0, 0);
+                        g.plotPixel(j + posx, i + posy, 255, 0, 0);
                         //g.plotPixel(j + posx, i + 700, 255, 255, 255);
                     }else if(pic[i][j] == 'W'){
-                        g.plotPixel(j  + posx, i + 700, 255, 255, 255);
+                        g.plotPixel(j  + posx, i + posy, 255, 255, 255);
                         //g.plotPixel(j + posx, i + 700, 255, 255, 255);
                     }else if(pic[i][j] == 'Q'){
-                        g.plotPixel(j  + posx, i + 700, 0, 0, 255);
+                        g.plotPixel(j  + posx, i + posy, 0, 0, 255);
                         //g.plotPixel(j + posx, i + 700, 255, 255, 255);
                     }
 

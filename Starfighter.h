@@ -16,9 +16,9 @@ class Starfighter
         ~Starfighter();
         Starfighter();
         void setposX(int x);
-        void setposY(int Y);
-        int getposX();
-        int getposY();
+        void setposY(int y);
+        int getX();
+        int getY();
         void draw(SDL_Plotter &g);
         void moveShip(int a, SDL_Plotter &g);
         void eraseShip(SDL_Plotter &g, int x, int y);

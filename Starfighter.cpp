@@ -3,7 +3,7 @@
 Starfighter::Starfighter()
 {
     health = 1;
-    posx = 400;
+    posx = 300;
     posy = 700;
     char graphic[34][30] = {  'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
                                         'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
@@ -51,11 +51,11 @@ Starfighter::Starfighter()
                     if (pic[i][j] == 'B'){
                         //its black
                     }else if(pic[i][j] == 'R'){
-                        g.plotPixel(j + posx, i + 700, 255, 0, 0);
+                        g.plotPixel(j + posx, i + posy, 255, 0, 0);
                     }else if(pic[i][j] == 'W'){
-                        g.plotPixel(j  + posx, i + 700, 255, 255, 255);
-                    }else if(pic[i][j] == 'Q'){
-                        g.plotPixel(j  + posx, i + 700, 0, 0, 255);
+                        g.plotPixel(j  + posx, i + posy, 255, 255, 255);
+                    }else if(pic[j][j] == 'Q'){
+                        g.plotPixel(j  + posx, i + posy, 0, 0, 255);
                     }
 
             }
@@ -69,10 +69,10 @@ Starfighter::Starfighter()
 
  void Starfighter::eraseShip(SDL_Plotter &g, int x, int y){
          //cout << "Before: " << endl;
-        for(int i = 0; i < 30; i++){
-            for(int j = 0; j < 34; j++){
+        for(int i = 0; i < 34; i++){
+            for(int j = 0; j < 31; j++){
                      //cout << x + i << " " << y + j << endl;
-                        g.plotPixel(x + i, y + j, 0, 0, 0);
+                        g.plotPixel(posx + i, posy + j, 0, 0, 0);
             }
         }
  }
@@ -80,4 +80,17 @@ Starfighter::Starfighter()
 Starfighter::~Starfighter()
 {
     //dtor
+}
+
+void Starfighter::setposX(int x){
+        posx = x;
+}
+void Starfighter::setposY(int y){
+        posy = y;
+}
+int Starfighter::getX(){
+        return posx;
+}
+int Starfighter::getY(){
+        return posy;
 }
