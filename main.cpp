@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "SDL_Plotter.h"
 #include "Starfighter.h"
 #include "Bullet.h"
@@ -22,13 +21,10 @@ int main(int argc, char ** argv)
 
     while (!g.getQuit())
     {
-<<<<<<< HEAD
        star.draw(g);
-=======
         //get input
 
        star.moveShip(5, g);
->>>>>>> 503af351b7d8fe0a0b77816761ca295c0ced0f62
 
         if(g.kbhit()){
           g.getKey();
