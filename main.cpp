@@ -54,7 +54,7 @@ int main(int argc, char ** argv)
         if(bullet){
                 if(bull.posy > 4){
                     bull.eraseShip(g, bull.posx, bull.posy);
-                    bull.posx = bull.posx - 10;
+                    bull.posy = bull.posy - 1;
                     bull.draw(g);
                 }
                 else{
