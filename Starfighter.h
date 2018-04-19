@@ -9,7 +9,6 @@
 class Starfighter
 {
     public:
-
         int health;
         int posx;
         int posy;
@@ -22,7 +21,7 @@ class Starfighter
         int getposY();
         void draw(SDL_Plotter &g);
         void moveShip(int a, SDL_Plotter &g);
-        void eraseShip(SDL_PLotter &g);
+        void eraseShip(SDL_Plotter &g);
 
     protected:
 
