@@ -9,7 +9,6 @@
 class Starfighter
 {
     public:
-
         int health;
         int posx;
         int posy;
