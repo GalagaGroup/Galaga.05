@@ -4,8 +4,9 @@
 #include "SDL_Plotter.h"
 
 class Bullet{
-	static int posx;
-	static int posy;
+public:
+	 int posx;
+	 int posy;
 	bool state = true;
 	const char pic[8][3] = {	     'B', 'Q', 'B',
                                      'B', 'Q', 'B',
@@ -17,6 +18,11 @@ class Bullet{
                                      'B', 'R', 'B',};
 
 	Bullet(int x, int y);
+	Bullet();
+	void setX(int x);
+	void setY(int y);
+	int getX();
+	int getY();
 	draw(SDL_Plotter &g);
 };
 

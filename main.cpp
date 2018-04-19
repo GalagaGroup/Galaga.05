@@ -10,6 +10,7 @@ int main(int argc, char ** argv)
     int ROW_MAX = 800;
     int COL_MAX = 800;
     Starfighter star;
+    Bullet bull;
     char key_pressed;
 
     SDL_Plotter g(ROW_MAX, COL_MAX);
@@ -27,17 +28,17 @@ int main(int argc, char ** argv)
         if(g.kbhit()){
             g.getKey();
             key_pressed = g.getKey();
-            star.eraseShip(*g, star.posx, star.posy);
+
+            star.eraseShip(g, star.posx, star.posy);
+
             if(key_pressed == RIGHT_ARROW && star.posx <= 720){
                 star.moveShip(5, g);
             }
             else if(key_pressed == LEFT_ARROW && star.posx >= 50){
                 star.moveShip(-5, g);
             }else if(key_pressed == ' '){
-                Bullet bull;
                 bull.posx = star.posx;
                 bull.posy = star.posy;
-                Bullet bull(bull.posx, bull.posy);
             }
         }
 
