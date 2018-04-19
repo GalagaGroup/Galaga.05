@@ -12,6 +12,7 @@ int main(int argc, char ** argv)
     Starfighter star;
     Bullet bull;
     char key_pressed;
+    bool bullet;
 
     SDL_Plotter g(ROW_MAX, COL_MAX);
     for(int i = 0; i < ROW_MAX; i++){
@@ -22,35 +23,38 @@ int main(int argc, char ** argv)
 
     while (!g.getQuit())
     {
-        //get input
-
         //get input and move character
         if(g.kbhit()){
+                int movement = 0;
             g.getKey();
 
             key_pressed = g.getKey();
-<<<<<<< HEAD
 
-            star.eraseShip(g, star.posx, star.posy);
-=======
-            star.eraseShip(*g, star.posx, star.posy);
->>>>>>> 4c80a6b05a481b6dc6760c3d59da74a258586b01
-
-            if(key_pressed == RIGHT_ARROW && star.posx <= 720){
-                star.eraseShip(&g, star.posx, star.posy);
-                star.moveShip(5, g);
+            if(key_pressed == RIGHT_ARROW && star.posx <= 760){
+                movement = 5;
             }
-            else if(key_pressed == LEFT_ARROW && star.posx >= 50){
-                star.eraseShip(&g, star.posx, star.posy);
-                star.moveShip(-5, g);
-            }else if(key_pressed == ' '){
+            else if(key_pressed == LEFT_ARROW && star.posx >= 10){
+                movement = -5;
+            }
+            else if(key_pressed == ' '){
                 bull.posx = star.posx;
                 bull.posy = star.posy;
+                bullet = true;
             }
+            star.eraseShip(g, star.posx, star.posy);
+            star.moveShip(movement, g);
+        }
+
+        if(bull.posy < 0){
+            //bullet.eraseShip(g);
+            bullet = false;
         }
 
         star.draw(g);
-        bull.draw(g);
+        if(bullet){
+            bull.draw(g);
+        }
+
 
 
 		g.update();

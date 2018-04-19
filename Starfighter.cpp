@@ -67,14 +67,9 @@ Starfighter::Starfighter()
     draw(g);
  }
 
-<<<<<<< HEAD
- void eraseShip(SDL_Plotter g, int x, int y){
-=======
  void Starfighter::eraseShip(SDL_Plotter &g, int x, int y){
-
->>>>>>> 4c80a6b05a481b6dc6760c3d59da74a258586b01
-        for(int j = 0; j < 30; j++){
-            for(int i = 0; i < 34; i++){
+        for(int i = 0; i < 30; i++){
+            for(int j = 0; j < 34; j++){
                         g.plotPixel(x + i, y + j, 0, 0, 0);
             }
         }
