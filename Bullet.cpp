@@ -9,8 +9,8 @@ Bullet::Bullet(int x, int y){
 }
 
 Bullet::draw(SDL_Plotter &g){
-	for(int j = 0; j < 3; j++){
-            for(int i = 0; i < 8; i++){
+	for(int j = 0; j < 6; j++){
+            for(int i = 0; i < 16; i++){
                     if (pic[i][j] == 'B'){
                         //its black
                     }else if(pic[i][j] == 'R'){
@@ -42,8 +42,8 @@ void Bullet::setX(int x){
 	}
 	void Bullet::eraseShip(SDL_Plotter &g, int x, int y){
          //cout << "Before: " << endl;
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 8; j++){
+        for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 16; j++){
                      //cout << x + i << " " << y + j << endl;
                         g.plotPixel(x + i, y + j, 0, 0, 0);
             }

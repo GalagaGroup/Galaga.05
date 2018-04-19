@@ -8,14 +8,22 @@ public:
 	 int posx;
 	 int posy;
 	bool state = true;
-	const char pic[8][3] = {	     'B', 'Q', 'B',
-                                     'B', 'Q', 'B',
-                                     'Q', 'Q', 'Q',
-                                     'Q', 'W', 'Q',
-                                     'B', 'R', 'B',
-                                     'B', 'R', 'B',
-                                     'B', 'R', 'B',
-                                     'B', 'R', 'B',};
+	const char pic[16][6] = {	     'B', 'B', 'Q', 'Q', 'B', 'B',
+									 'B', 'B', 'Q', 'Q', 'B', 'B',
+                                     'B', 'B', 'Q', 'Q', 'B', 'B',
+                                     'B', 'B', 'Q', 'Q', 'B', 'B',
+                                     'Q', 'Q', 'Q', 'Q', 'Q', 'Q',
+                                     'Q', 'Q', 'Q', 'Q', 'Q', 'Q',
+                                     'Q', 'Q', 'W', 'W', 'Q', 'Q',
+                                     'Q', 'Q', 'W', 'W', 'Q', 'Q',
+                                     'B', 'B', 'R', 'R', 'B', 'B',
+                                     'B', 'B', 'R', 'R', 'B', 'B',
+                                     'B', 'B', 'R', 'R', 'B', 'B',
+                                     'B', 'B', 'R', 'R', 'B', 'B',
+                                     'B', 'B', 'R', 'R', 'B', 'B',
+                                     'B', 'B', 'R', 'R', 'B', 'B',
+                                     'B', 'B', 'R', 'R', 'B', 'B',
+                                     'B', 'B', 'R', 'R', 'B', 'B',};
 
 	Bullet(int x, int y);
 	Bullet();
