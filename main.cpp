@@ -26,7 +26,10 @@ int main(int argc, char ** argv)
         //get input and move character
         if(g.kbhit()){
             g.getKey();
-            star.eraseShip(&g, star.posx, star.posy);
+
+            key_pressed = g.getKey();
+            star.eraseShip(*g, star.posx, star.posy);
+
             if(key_pressed == RIGHT_ARROW && star.posx <= 720){
                 star.eraseShip(&g, star.posx, star.posy);
                 star.moveShip(5, g);
@@ -35,11 +38,16 @@ int main(int argc, char ** argv)
                 star.eraseShip(&g, star.posx, star.posy);
                 star.moveShip(-5, g);
             }else if(key_pressed == ' '){
-                Bullet bull(star.posx, star.posy);
+                Bullet bull;
+                bull.posx = star.posx;
+                bull.posy = star.posy;
+                Bullet bull(bull.posx, bull.posy);
             }
         }
 
         star.draw(g);
+        bull.draw(g);
+
 
 		g.update();
     }
