@@ -7,9 +7,9 @@ class Enemy{
 	int posx;
 	int posy;
     Enemy();
-    draw(SDL_Plotter &g);
-    moveShip(SDL_Plotter &g);
-    eraseShip(SDL_Plotter &g);
+    void draw(SDL_Plotter &g);
+    void moveShip(SDL_Plotter &g);
+    void eraseShip(SDL_Plotter &g);
     void setX(int x);
 	void setY(int y);
 	int getX();
