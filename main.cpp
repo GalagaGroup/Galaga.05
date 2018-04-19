@@ -31,10 +31,10 @@ int main(int argc, char ** argv)
             key_pressed = g.getKey();
 
             if(key_pressed == RIGHT_ARROW && star.posx <= 760){
-                movement = 5;
+                movement = 7;
             }
             else if(key_pressed == LEFT_ARROW && star.posx >= 10){
-                movement = -5;
+                movement = -7;
             }
             else if(key_pressed == ' '){
                 bull.posx = star.posx;
@@ -48,15 +48,19 @@ int main(int argc, char ** argv)
             star.moveShip(movement, g);
         }
 
-        if(bull.posy < 0){
-            //bullet.eraseShip(g);
-            bullet = false;
-        }
+
 
         star.draw(g);
         if(bullet){
+                if(bullet.posy > 4){
+                    bull.posy = bull.posy - 4;
+                }
+                else{
+                    ~bullet(g, bull.posx, bull.posy);
+                }
             bull.draw(g);
         }
+
 
 
 

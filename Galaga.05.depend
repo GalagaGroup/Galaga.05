@@ -465,7 +465,7 @@
 1524091152 source:h:\galaga.05\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1524105219 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\main.cpp
+1524106528 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\main.cpp
 	<iostream>
 	"SDL_Plotter.h"
 	"Starfighter.h"
@@ -487,7 +487,7 @@
 1524105674 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1524106345 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.cpp
+1524106498 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.cpp
 	"Starfighter.h"
 
 1512333750 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl2\sdl.h
@@ -1210,6 +1210,6 @@
 
 1524100325 f89fdad2caf1bf728d1356e73b3fe02db2fc6
 
-1524103800 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\bullet.cpp
+1524106640 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\bullet.cpp
 	"Bullet.h"
 

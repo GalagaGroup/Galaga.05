@@ -19,6 +19,8 @@ public:
 
 	Bullet(int x, int y);
 	Bullet();
+	~Bullet();
+	void eraseShip(SDL_Plotter &g, int x, int y);
 	void setX(int x);
 	void setY(int y);
 	int getX();

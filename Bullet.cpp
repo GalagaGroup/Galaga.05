@@ -9,15 +9,18 @@ Bullet::Bullet(int x, int y){
 }
 
 Bullet::draw(SDL_Plotter &g){
-	for(int j = 0; j < 30; j++){
-            for(int i = 0; i < 34; i++){
+	for(int j = 0; j < 3; j++){
+            for(int i = 0; i < 8; i++){
                     if (pic[i][j] == 'B'){
                         //its black
                     }else if(pic[i][j] == 'R'){
                         g.plotPixel(j + posx, i + 700, 255, 0, 0);
+                    }else if(pic[i][j] == 'W'){
+                        g.plotPixel(j  + posx, i + 700, 255, 255, 255);
                     }else if(pic[i][j] == 'Q'){
                         g.plotPixel(j  + posx, i + 700, 0, 0, 255);
                     }
+
             }
         }
 }
@@ -33,4 +36,20 @@ void Bullet::setX(int x){
 	}
 	int Bullet::getY(){
         return posy;
+	}
+	void Bullet::eraseShip(SDL_Plotter &g, int x, int y){
+         //cout << "Before: " << endl;
+        for(int i = 0; i < 30; i++){
+            for(int j = 0; j < 34; j++){
+                     //cout << x + i << " " << y + j << endl;
+                        g.plotPixel(x + i, y + j, 0, 0, 0);
+            }
+        }
+ }
+
+
+	void Bullet::~Bullet(SDL_Plotter &g){
+	    eraseShip(SDL_Plotter &g);
+        delete posx;
+        delete posy;
 	}
