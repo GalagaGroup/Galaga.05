@@ -39,6 +39,7 @@
 			<Add directory="C:/Users/MarkF/Google Drive/Baylor/Semeter 2/CSI 1430/Group Project/Galaga.05/SDL/lib" />
 			<Add directory="SDL/lib" />
 		</Linker>
+		<Unit filename="Bullet.h" />
 		<Unit filename="SDL_Plotter.cpp" />
 		<Unit filename="SDL_Plotter.h" />
 		<Unit filename="Starfighter.cpp" />
