@@ -831,7 +831,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1524097163 source:c:\users\diego\documents\github\galaga.05\sdl_plotter.cpp
+1524100389 source:c:\users\diego\documents\github\galaga.05\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
 1524097063 c:\users\diego\documents\github\galaga.05\sdl_plotter.h
@@ -1185,15 +1185,18 @@
 	"begin_code.h"
 	"close_code.h"
 
-1524099747 source:c:\users\diego\documents\github\galaga.05\main.cpp
+1524100281 source:c:\users\diego\documents\github\galaga.05\main.cpp
 	<iostream>
 	"SDL_Plotter.h"
 	"Starfighter.h"
+	"Bullet.h"
 
-1524099783 c:\users\diego\documents\github\galaga.05\starfighter.h
+1524100327 c:\users\diego\documents\github\galaga.05\starfighter.h
 	<string.h>
 	"SDL_Plotter.h"
 
 1524099683 source:c:\users\diego\documents\github\galaga.05\starfighter.cpp
 	"Starfighter.h"
+
+1524100405 c:\users\diego\documents\github\galaga.05\bullet.h
 

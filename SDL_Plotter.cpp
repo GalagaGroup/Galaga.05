@@ -20,7 +20,7 @@ static int Sound(void *data){
 	return 0;
 }
 
-// SDL Plotter Function Deffinitions
+// SDL Plotter Function Definitions
 
 SDL_Plotter::SDL_Plotter(int r, int c, bool WITH_SOUND){
 	row = r;
