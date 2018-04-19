@@ -24,25 +24,30 @@ int main(int argc, char ** argv)
     {
         //get input
 
-        //get input and move charactor
+        //get input and move character
         if(g.kbhit()){
             g.getKey();
+
             key_pressed = g.getKey();
+<<<<<<< HEAD
 
             star.eraseShip(g, star.posx, star.posy);
+=======
+            star.eraseShip(*g, star.posx, star.posy);
+>>>>>>> 4c80a6b05a481b6dc6760c3d59da74a258586b01
 
             if(key_pressed == RIGHT_ARROW && star.posx <= 720){
+                star.eraseShip(&g, star.posx, star.posy);
                 star.moveShip(5, g);
             }
             else if(key_pressed == LEFT_ARROW && star.posx >= 50){
+                star.eraseShip(&g, star.posx, star.posy);
                 star.moveShip(-5, g);
             }else if(key_pressed == ' '){
                 bull.posx = star.posx;
                 bull.posy = star.posy;
             }
         }
-
-       star.moveShip(5, g);
 
         star.draw(g);
         bull.draw(g);
