@@ -120,7 +120,6 @@
 		posx = x;
     }
 	void Enemy::setY(int y){
-		cout << "Y changed" << endl;
 		posy = y;
 	}
 	void Enemy::setType(int a){

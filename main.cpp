@@ -81,10 +81,10 @@ int main(int argc, char ** argv)
 
         //move and update enemies
         for(int i = 0; i < 32; i++){
-                if(framecounter % 40 == 0){
-                    if(Enemies[i].posy < 750 || Enemies[i].posy > 50){
+                if(framecounter % 600 == 0){
+                    if(Enemies[i].posy < 700 || Enemies[i].posy > 50){
                         Enemies[i].eraseShip(g);
-                        Enemies[i].posy ++;
+                        Enemies[i].setY(Enemies[i].posy + 10);
                         Enemies[i].draw(g);
 
                     }
