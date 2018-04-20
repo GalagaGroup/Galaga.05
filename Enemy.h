@@ -6,6 +6,7 @@
 class Enemy{
 public:
 	int health;
+	bool dead = false;
 	int posx;
 	int posy;
 	int type;

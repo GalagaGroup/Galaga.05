@@ -4,6 +4,7 @@
 		health = 1;
 		posx = x;
 		posy = y;
+		dead = false;
 		const char moth[34][30] = {	'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Y', 'Y', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B',//1
 									'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Y', 'Y', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B',//1
 									'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'R', 'R', 'Y', 'Y', 'R', 'R', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//2
@@ -79,12 +80,13 @@
 		posx = 0;
 		posy = 0;
 		type = 2;
+		dead = false;
 	}
     void Enemy::draw(SDL_Plotter &g){
 		for(int j = 0; j < 30; j++){
-            for(int i = 0; i < 34; i++){
+            for(int i = 0; i < 35; i++){
                     if (pic[i][j] == 'B'){
-                        //its black
+                        //is black no need to paint
                     }else if(pic[i][j] == 'R'){
                         g.plotPixel(j + posx, i + posy, 255, 0, 0);
                     }else if(pic[i][j] == 'W'){
@@ -118,6 +120,7 @@
 		posx = x;
     }
 	void Enemy::setY(int y){
+		cout << "Y changed" << endl;
 		posy = y;
 	}
 	void Enemy::setType(int a){

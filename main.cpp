@@ -3,6 +3,7 @@
 #include "Starfighter.h"
 #include "Bullet.h"
 #include "Enemy.h"
+#include "EnemyInit.h"
 
 using namespace std;
 
@@ -10,31 +11,31 @@ int main(int argc, char ** argv)
 {
     int ROW_MAX = 800;
     int COL_MAX = 600;
-    Starfighter star;
-    Bullet bull;
-    Bullet llet;
-    Bullet Bullets [2] = {bull, llet};
-    //Enemy Enemies[8];
+    int framecounter = 0;
     char key_pressed;
     bool bullet;
 
+    // create window
     SDL_Plotter g(ROW_MAX, COL_MAX);
     for(int i = 0; i < COL_MAX; i++){
             for(int j = 0; j < ROW_MAX; j++){
                 g.plotPixel(i , j, 0, 0, 0);
             }
         }
+    // ceate starship
+    Starfighter star;
 
-    //for(int i = 0; i < 1; i++){
-    //    Enemies[i].setX(150 + (50 * i));
-    //    Enemies[i].setY(150);
-    //    Enemies[i].setType(2);
-    //    Enemies[i].draw(g);
-    //}
-    Enemy e1(150, 150, 2);
-    Enemy e2(180, 150, 3);
-    e1.draw(g);
-    e2.draw(g);
+    //create both bulletts fireb by starfighter
+    Bullet bull;
+    Bullet llet;
+    Bullet Bullets [2] = {bull, llet};
+
+    //enemy initial.
+    Enemy Enemies[32];
+    EnemyInit(Enemies);
+    for (int i = 0; i < 16; i++){
+        Enemies[i].draw(g);
+    }
 
     while (!g.getQuit())
     {
@@ -79,11 +80,19 @@ int main(int argc, char ** argv)
         }
 
         //move and update enemies
-        //for(int i = 0; i < 8; i++){
-        //    Enemies[i].draw(g);
-    //}
+        for(int i = 0; i < 32; i++){
+                if(framecounter % 40 == 0){
+                    if(Enemies[i].posy < 750 || Enemies[i].posy > 50){
+                        Enemies[i].eraseShip(g);
+                        Enemies[i].posy ++;
+                        Enemies[i].draw(g);
 
+                    }
 
+                }
+
+        }
+        framecounter++;
 		g.update();
     }
     return 0;
