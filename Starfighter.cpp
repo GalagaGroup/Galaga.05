@@ -67,8 +67,8 @@ Starfighter::Starfighter()
     draw(g);
  }
 
- void Starfighter::eraseShip(SDL_Plotter &g, int x, int y){
-         //cout << "Before: " << endl;
+ void Starfighter::eraseShip(SDL_Plotter &g){
+        //cout << "Before: " << endl;
         for(int i = 0; i < 34; i++){
             for(int j = 0; j < 31; j++){
                      //cout << x + i << " " << y + j << endl;

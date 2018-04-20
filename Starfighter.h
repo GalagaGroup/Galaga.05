@@ -21,7 +21,7 @@ class Starfighter
         int getY();
         void draw(SDL_Plotter &g);
         void moveShip(int a, SDL_Plotter &g);
-        void eraseShip(SDL_Plotter &g, int x, int y);
+        void eraseShip(SDL_Plotter &g);
 
 
     protected:

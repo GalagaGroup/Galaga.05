@@ -4,20 +4,22 @@
 #include "SDL_Plotter.h"
 
 class Enemy{
-
+public:
 	int health;
 	int posx;
 	int posy;
 	int type;
 	char pic[34][30];
     Enemy(int x, int y, int type);
+    Enemy();
     void draw(SDL_Plotter &g);
-    void moveShip(SDL_Plotter &g);
+    void moveShip(int x, int y, SDL_Plotter &g);
     void eraseShip(SDL_Plotter &g);
     void setX(int x);
 	void setY(int y);
 	int getX();
 	int getY();
+	void setType(int a);
 };
 
 

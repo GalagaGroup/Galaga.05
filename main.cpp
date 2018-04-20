@@ -2,6 +2,7 @@
 #include "SDL_Plotter.h"
 #include "Starfighter.h"
 #include "Bullet.h"
+#include "Enemy.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ int main(int argc, char ** argv)
     Bullet bull;
     Bullet llet;
     Bullet Bullets [2] = {bull, llet};
+    //Enemy Enemies[8];
     char key_pressed;
     bool bullet;
 
@@ -22,6 +24,17 @@ int main(int argc, char ** argv)
                 g.plotPixel(i , j, 0, 0, 0);
             }
         }
+
+    //for(int i = 0; i < 1; i++){
+    //    Enemies[i].setX(150 + (50 * i));
+    //    Enemies[i].setY(150);
+    //    Enemies[i].setType(2);
+    //    Enemies[i].draw(g);
+    //}
+    Enemy e1(150, 150, 2);
+    Enemy e2(180, 150, 3);
+    e1.draw(g);
+    e2.draw(g);
 
     while (!g.getQuit())
     {
@@ -43,11 +56,14 @@ int main(int argc, char ** argv)
                 bull.posy = star.getY() - 10;
                 bullet = true;
             }
-            star.eraseShip(g, star.getX(), star.getY());
+            star.eraseShip(g);
             star.moveShip(movement, g);
         }
 
+        //update starfighter
         star.draw(g);
+
+        //move and update bullet
         if(bullet){
                 if(bull.getY() > 0 && bull.getY() < ROW_MAX){
                     bull.eraseShip(g, bull.getX(), bull.getY());
@@ -61,6 +77,13 @@ int main(int argc, char ** argv)
                 }
 
         }
+
+        //move and update enemies
+        //for(int i = 0; i < 8; i++){
+        //    Enemies[i].draw(g);
+    //}
+
+
 		g.update();
     }
     return 0;

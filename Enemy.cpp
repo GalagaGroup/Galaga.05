@@ -41,10 +41,10 @@
 									'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//7
 									'B', 'B', 'B', 'B', 'G', 'G', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B', 'B', 'B',//8
 									'B', 'B', 'B', 'B', 'G', 'G', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B', 'B', 'B',//8
-									'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B', 'B', 'B', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G',//9
-									'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B', 'B', 'B', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G',//9
-									'B', 'B', 'G', 'G', 'G', 'G', 'B', 'B', 'B', 'B', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B',//8
-									'B', 'B', 'G', 'G', 'G', 'G', 'B', 'B', 'B', 'B', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B',//8
+									'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G',//9
+									'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G',//9
+									'B', 'B', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B',//8
+									'B', 'B', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'B', 'B',//8
 									'B', 'B', 'G', 'G', 'O', 'O', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'O', 'O', 'G', 'G', 'B', 'B',//7
 									'B', 'B', 'G', 'G', 'O', 'O', 'G', 'G', 'G', 'G', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'G', 'G', 'G', 'G', 'O', 'O', 'G', 'G', 'B', 'B',//7
 									'G', 'G', 'G', 'G', 'O', 'O', 'G', 'G', 'B', 'B', 'B', 'B', 'O', 'O', 'B', 'B', 'O', 'O', 'B', 'B', 'B', 'B', 'G', 'G', 'O', 'O', 'G', 'G', 'G', 'G',//6
@@ -74,24 +74,58 @@
 
 		}
 	}
+
+	Enemy::Enemy(){
+		posx = 0;
+		posy = 0;
+		type = 2;
+	}
     void Enemy::draw(SDL_Plotter &g){
+		for(int j = 0; j < 30; j++){
+            for(int i = 0; i < 34; i++){
+                    if (pic[i][j] == 'B'){
+                        //its black
+                    }else if(pic[i][j] == 'R'){
+                        g.plotPixel(j + posx, i + posy, 255, 0, 0);
+                    }else if(pic[i][j] == 'W'){
+                        g.plotPixel(j  + posx, i + posy, 255, 255, 255);
+                    }else if(pic[i][j] == 'Q'){
+                        g.plotPixel(j  + posx, i + posy, 0, 0, 255);
+                    }else if(pic[i][j] == 'G'){
+						g.plotPixel(j + posx, i + posy, 54, 160, 111);
+                    }else if(pic[i][j] == 'O'){
+						g.plotPixel(j + posx, i + posy, 255, 148, 0);
+                    }else if(pic[i][j] == 'Y'){
+						g.plotPixel(j + posx, i + posy, 255, 246, 12);
+                    }
 
+            }
+        }
     }
-    void Enemy::moveShip(SDL_Plotter &g){
-
+    void Enemy::moveShip(int x, int y, SDL_Plotter &g){
+		posx = posx + x;
+		posy = posy + y;
     }
     void Enemy::eraseShip(SDL_Plotter &g){
-
+		for(int i = 0; i < 34; i++){
+            for(int j = 0; j < 31; j++){
+                     //cout << x + i << " " << y + j << endl;
+                        g.plotPixel(posx + i, posy + j, 0, 0, 0);
+            }
+        }
     }
     void Enemy::setX(int x){
-
+		posx = x;
     }
 	void Enemy::setY(int y){
-
+		posy = y;
+	}
+	void Enemy::setType(int a){
+		type = a;
 	}
 	int Enemy::getX(){
-
+		return posx;
 	}
 	int Enemy::getY(){
-
+		return posy;
 	}
