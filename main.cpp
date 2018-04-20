@@ -32,8 +32,9 @@ int main(int argc, char ** argv)
 
     //enemy initial.
     Enemy Enemies[32];
-    EnemyInit(Enemies);
-    for (int i = 0; i < 16; i++){
+    EnemyInit(Enemies, 90);
+
+    for (int i = 0; i < 32; i++){
         Enemies[i].draw(g);
     }
 
@@ -80,6 +81,7 @@ int main(int argc, char ** argv)
         }
 
         //move and update enemies
+
         for(int i = 0; i < 32; i++){
                 if(framecounter % 600 == 0){
                     if(Enemies[i].posy < 700 || Enemies[i].posy > 50){
@@ -92,6 +94,7 @@ int main(int argc, char ** argv)
                 }
 
         }
+
         framecounter++;
 		g.update();
     }
