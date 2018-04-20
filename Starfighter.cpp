@@ -2,10 +2,10 @@
 
 Starfighter::Starfighter()
 {
-    health = 1;
-    posx = 300;
-    posy = 700;
-    char graphic[34][30] = {  'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
+        health = 1;
+        posx = 300;
+        posy = 700;
+        char graphic[34][30] = {        'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
                                         'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
                                         'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
                                         'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
@@ -37,11 +37,11 @@ Starfighter::Starfighter()
                                         'W', 'W', 'W', 'W', 'B', 'B', 'B', 'B', 'R', 'R', 'R', 'R', 'B', 'B', 'W', 'W', 'B', 'B', 'R', 'R', 'R', 'R', 'B', 'B', 'B', 'B', 'W', 'W', 'W', 'W',//2
                                         'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W',
                                         'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W',};
-                                        for(int i = 0; i < 30; i++){
-                                            for(int j = 0; j < 34; j++){
-                                                pic[i][j] = graphic[i][j];
-                                            }
-                                        }
+        for(int i = 0; i < 30; i++){
+            for(int j = 0; j < 34; j++){
+                pic[i][j] = graphic[i][j];
+            }
+        }
 
 }
 
