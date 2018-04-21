@@ -2,6 +2,7 @@
 #define	FUNCTIONS_H_
 
 #include "Enemy.h"
+#include <fstream>
 
 void EnemyInit(Enemy enemies[32], int a){
 
@@ -47,7 +48,17 @@ void EnemyInit(Enemy enemies[32], int a){
 
 }
 
-void collisionTest();
+void scoreinit(string score, SDL_Plotter &g){
+    ifstream inLetters;
+    inLetters.open("Letters.txt");
+    for(int i = 0; i < score.length(); i++){
+        for(int i = 0' i < score.substr(i, 1)){
+            for(int i = 0; i < )
+        }
+    }
+
+
+}
 
 
 #endif // FUNCTIONS_H_

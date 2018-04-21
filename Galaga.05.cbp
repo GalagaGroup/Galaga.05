@@ -43,7 +43,9 @@
 		<Unit filename="Bullet.h" />
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
-		<Unit filename="Functions.h" />
+		<Unit filename="GameFunctions.h" />
+		<Unit filename="Letters.txt" />
+		<Unit filename="Numbers.txt" />
 		<Unit filename="SDL_Plotter.cpp" />
 		<Unit filename="SDL_Plotter.h" />
 		<Unit filename="Starfighter.cpp" />

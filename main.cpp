@@ -3,7 +3,7 @@
 #include "Starfighter.h"
 #include "Bullet.h"
 #include "Enemy.h"
-#include "Functions.h"
+#include "GameFunctions.h"
 
 using namespace std;
 
@@ -16,6 +16,7 @@ int main(int argc, char ** argv)
     int framecounter = 0;
     int top_row = 130;
     int bottom_row = 170;
+    int score = 0;
 
 
     // create window with max row and max col values
@@ -25,6 +26,10 @@ int main(int argc, char ** argv)
             g.plotPixel(i , j, 0, 0, 0);
         }
     }
+
+    //init. score
+    initScore("SCORE", g);
+
 
     // ceate starship
     Starfighter star;
@@ -95,6 +100,7 @@ int main(int argc, char ** argv)
                         //bullet colided
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
+                        Score(g);
                     }
                 }
             }
