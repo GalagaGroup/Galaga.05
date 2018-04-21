@@ -3,7 +3,7 @@
 #include "Starfighter.h"
 #include "Bullet.h"
 #include "Enemy.h"
-#include "EnemyInit.h"
+#include "Functions.h"
 
 using namespace std;
 
@@ -22,10 +22,11 @@ int main(int argc, char ** argv)
                 g.plotPixel(i , j, 0, 0, 0);
             }
         }
+
     // ceate starship
     Starfighter star;
 
-    //create both bulletts fireb by starfighter
+    //create both bulletts fired by starfighter
     Bullet bull;
     Bullet llet;
     Bullet Bullets [2] = {bull, llet};
@@ -33,7 +34,6 @@ int main(int argc, char ** argv)
     //enemy initial.
     Enemy Enemies[32];
     EnemyInit(Enemies, 90);
-
     for (int i = 0; i < 32; i++){
         Enemies[i].draw(g);
     }
@@ -67,7 +67,8 @@ int main(int argc, char ** argv)
 
         //move and update bullet
         if(bullet){
-                if(bull.getY() > 0 && bull.getY() < ROW_MAX){
+
+                if(bull.getY() > 5 && bull.getY() < ROW_MAX - 5){
                     bull.eraseShip(g, bull.getX(), bull.getY());
                     bull.setY(bull.getY() - 1);
                     bull.draw(g);
@@ -75,24 +76,27 @@ int main(int argc, char ** argv)
                 else{
                     bull.eraseShip(g, bull.getX(), bull.getY());
                     bullet = false;
-                    bull.~Bullet();
-                }
 
+                }
+        }
+        //test for collision
+        if(bull.getY() <= (1 / 60) * framecounter + 100){   //test for sufficent y val to collide
+            if(bull.getX()){           //test for sufficent x val for collision
+
+            }
         }
 
         //move and update enemies
-
         for(int i = 0; i < 32; i++){
                 if(framecounter % 600 == 0){
                     if(Enemies[i].posy < 700 || Enemies[i].posy > 50){
                         Enemies[i].eraseShip(g);
                         Enemies[i].setY(Enemies[i].posy + 10);
-                        Enemies[i].draw(g);
-
+                        cout << framecounter << " " << Enemies[0].getY() << endl;;
                     }
 
                 }
-
+        Enemies[i].draw(g);
         }
 
         framecounter++;
