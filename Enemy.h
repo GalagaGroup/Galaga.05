@@ -15,12 +15,11 @@ public:
 	char pic[34][30];
 	void setX(int x);
 	void setY(int y);
-	bool dead = false;
-	void setState(bool);
+	bool state = true;
 	void setType(int a);
 	void kill(SDL_Plotter &g);
 	void draw(SDL_Plotter &g);
-	bool getState(SDL_Plotter &g);
+	bool getState();
 	Enemy(int x, int y, int type);
 	void eraseShip(SDL_Plotter &g);
     void moveShip(int x, int y, SDL_Plotter &g);

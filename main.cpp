@@ -58,7 +58,7 @@ int main(int argc, char ** argv)
                 movement = -7;
             }
             else if(key_pressed == ' '){
-                    bool shot = false;
+                bool shot = false;
                 for(int i = 0; i < 2; i++){
                     if(Bullets[i].getState() == false && shot == false){
                     Bullets[i].setX(star.getX() + 10);
@@ -92,6 +92,7 @@ int main(int argc, char ** argv)
             for(int j = 0; j < 2; j++){
                 if(Bullets[j].getY() > Enemies[i].getY() && Bullets[j].getY() < Enemies[i].getY() + 30){
                     if(Bullets[j].getX() > Enemies[i].getX() && Bullets[j].getX() < Enemies[i].getX() + 30){
+                        //bullet colided
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
                     }
@@ -101,21 +102,16 @@ int main(int argc, char ** argv)
 
         //move and update enemies
         for(int i = 0; i < 32; i++){
-                if(Enemies[i].getState(g) == true){
+            if(Enemies[i].getState() == false){
+                //theyre dead and shouldnt be moved or diaplayed
+            }
+            else if(framecounter % 600 == 0){
+                if(Enemies[i].posy < 700 || Enemies[i].posy > 50){
                     Enemies[i].eraseShip(g);
-                    Enemies[i].setY(660);
-                    Enemies[i].setX(0);
-                    Enemies[i].eraseShip(g);
+                    Enemies[i].setY(Enemies[i].posy + 10);
+                    Enemies[i].draw(g);
                 }
-
-                if(framecounter % 600 == 0){
-                    if(Enemies[i].posy < 700 || Enemies[i].posy > 50){
-                        Enemies[i].eraseShip(g);
-                        Enemies[i].setY(Enemies[i].posy + 10);
-                    }
-
-                }
-            Enemies[i].draw(g);
+            }
         }
 
         framecounter++;

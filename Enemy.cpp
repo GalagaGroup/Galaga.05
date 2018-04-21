@@ -4,7 +4,7 @@
 		health = 1;
 		posx = x;
 		posy = y;
-		dead = false;
+		state = true;
 		const char moth[34][30] = {	'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Y', 'Y', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B',//1
 									'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Y', 'Y', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B',//1
 									'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'R', 'R', 'Y', 'Y', 'R', 'R', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//2
@@ -94,7 +94,7 @@
 		posx = 0;
 		posy = 0;
 		type = 2;
-		dead = false;
+		state = true;
 	}
     void Enemy::draw(SDL_Plotter &g){
 		for(int j = 0; j < 30; j++){
@@ -132,8 +132,7 @@
     }
 
     void Enemy::kill(SDL_Plotter &g){
-    	cout << "killed:" << endl;
-		setState(false);
+		state = false;
 		eraseShip(g);
 		posx = 1;
 		posy = 1;
@@ -155,9 +154,6 @@
 	int Enemy::getY(){
 		return posy;
 	}
-	bool Enemy::getState(SDL_Plotter &g){
-		return dead;
-	}
-	void Enemy::setState(bool a){
-		dead = a;
+	bool Enemy::getState(){
+		return state;
 	}
