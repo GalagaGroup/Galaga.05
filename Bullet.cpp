@@ -1,4 +1,8 @@
 #include "Bullet.h"
+#include <iostream>
+
+using namespace std;
+
 Bullet::Bullet(){
     posx = 0;
     posy = 0;
@@ -48,15 +52,17 @@ int Bullet::getY(){
 void Bullet::eraseShip(SDL_Plotter &g){
 	for(int i = 0; i < 6; i++){
 		for(int j = 0; j < 16; j++){
-					g.plotPixel(posx + i, posy + j, 255, 255, 255);
+					g.plotPixel(posx + i, posy + j, 0, 0, 0);
 		}
 	}
 }
 void Bullet::destroy(SDL_Plotter &g){
+	cout << "bullet destroyed" << endl;
 	eraseShip(g);
 	posx = 1;
-	posy = 600;
+	posy = 1;
 	eraseShip(g);
+	setState(false);
 }
 
 Bullet::~Bullet(){

@@ -16,10 +16,11 @@ public:
 	void setX(int x);
 	void setY(int y);
 	bool dead = false;
-	void setDead(bool);
+	void setState(bool);
 	void setType(int a);
+	void kill(SDL_Plotter &g);
 	void draw(SDL_Plotter &g);
-	bool isDead(SDL_Plotter &g);
+	bool getState(SDL_Plotter &g);
 	Enemy(int x, int y, int type);
 	void eraseShip(SDL_Plotter &g);
     void moveShip(int x, int y, SDL_Plotter &g);

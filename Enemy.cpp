@@ -130,6 +130,15 @@
             }
         }
     }
+
+    void Enemy::kill(SDL_Plotter &g){
+    	cout << "killed:" << endl;
+		setState(false);
+		eraseShip(g);
+		posx = 1;
+		posy = 1;
+    }
+
     void Enemy::setX(int x){
 		posx = x;
     }
@@ -145,10 +154,10 @@
 	int Enemy::getY(){
 		return posy;
 	}
-	bool Enemy::isDead(SDL_Plotter &g){
+	bool Enemy::getState(SDL_Plotter &g){
 		return dead;
 	}
-	void Enemy::setDead(bool a){
+	void Enemy::setState(bool a){
 		cout << "setdead" << endl;
 		dead = a;
 	}

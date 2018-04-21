@@ -58,16 +58,13 @@ int main(int argc, char ** argv)
                 movement = -7;
             }
             else if(key_pressed == ' '){
-                    cout << bull.getState() << endl;
-                    if(bull.getState() == false){
-                        bull.posx = star.getX() + 10;
-                        bull.posy = star.getY() - 10;
-                        bull.setState(true);
-                    }else if(llet.getState() == false){
-                        llet.posx = star.getX() + 10;
-                        llet.posy = star.getY() - 10;
-                        llet.setState(true);
+                for(int i = 0; i < 2; i++){
+                    if(Bullets[i].getState() == false){
+                    Bullets[i].setX(star.getX() + 10);
+                    Bullets[i].setY(star.getY() - 10);
+                    Bullets[i].setState(true);
                     }
+                }
             }
             star.eraseShip(g);
             star.moveShip(movement, g);
@@ -76,39 +73,34 @@ int main(int argc, char ** argv)
 
         //move and update bullet
         for(int i = 0; i < 2; i++){
-            if(Bullets[i].getState()){
-                cout << Bullets[i].getState() << endl;
+            if(Bullets[i].getState() == true){
                 if(Bullets[i].getY() > 10 && Bullets[i].getY() < ROW_MAX - 10 && Bullets[i].getX() > 15){
                 Bullets[i].eraseShip(g);
                 Bullets[i].setY(Bullets[i].getY() - 1);
                 Bullets[i].draw(g);
                 star.draw(g);
+                }else{
+                    Bullets[i].destroy(g);
                 }
-            }else{
-                Bullets[i].eraseShip(g);
-                Bullets[i].setState(false);
-                Bullets[i].setX(1);
-                Bullets[i].setY(1);
-                Bullets[i].setState(false);
-                Bullets[i].eraseShip(g);
             }
-
         }
 
         //test for collision
         for(int i = 0; i < 32; i++){
-            if(bull.getY() > Enemies[i].getY() && bull.getY() < Enemies[i].getY() + 30){
-                if(bull.getX() > Enemies[i].getX() && bull.getX() < Enemies[i].getX() + 30){
-                    Enemies[i].setDead(true);
-                    bull.setState(false);
+            for(int j = 0; j < 2; j++){
+                if(Bullets[j].getY() > Enemies[i].getY() && Bullets[j].getY() < Enemies[i].getY() + 30){
+                    cout << "in the y val" << endl;
+                    if(Bullets[j].getX() > Enemies[i].getX() && Bullets[j].getX() < Enemies[i].getX() + 30){
+                        Enemies[i].kill(g);
+                        Bullets[j].destroy(g);
+                    }
                 }
             }
-
         }
 
         //move and update enemies
         for(int i = 0; i < 32; i++){
-                if(Enemies[i].isDead(g)){
+                if(Enemies[i].getState(g)){
                     Enemies[i].eraseShip(g);
                     Enemies[i].setY(660);
                     Enemies[i].setX(0);

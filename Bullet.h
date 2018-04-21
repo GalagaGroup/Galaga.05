@@ -3,6 +3,7 @@
 
 #include "SDL_Plotter.h"
 
+
 class Bullet{
 public:
 	int posx;
