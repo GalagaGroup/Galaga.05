@@ -7,7 +7,7 @@ void EnemyInit(Enemy enemies[32], int a){
 
     //bottom left row
     enemies[0] = Enemy (20, a, 2);
-    enemies[1] = Enemy (46, a, 2);
+    enemies[1] = Enemy (50, a, 2);
     enemies[2] = Enemy (80, a, 2);
     enemies[3] = Enemy (110, a, 2);
     enemies[4] = Enemy (140, a, 2);

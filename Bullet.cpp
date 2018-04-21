@@ -2,6 +2,7 @@
 Bullet::Bullet(){
     posx = 0;
     posy = 0;
+    state = false;
 }
 Bullet::Bullet(int x, int y){
 		posx = x;
@@ -47,17 +48,24 @@ int Bullet::getY(){
 void Bullet::eraseShip(SDL_Plotter &g){
 	for(int i = 0; i < 6; i++){
 		for(int j = 0; j < 16; j++){
-					g.plotPixel(posx + i, posy + j, 0, 0, 0);
+					g.plotPixel(posx + i, posy + j, 255, 255, 255);
 		}
 	}
 }
 void Bullet::destroy(SDL_Plotter &g){
 	eraseShip(g);
 	posx = 1;
-	posy = 785;
+	posy = 600;
 	eraseShip(g);
 }
 
+Bullet::~Bullet(){
 
-	Bullet::~Bullet(){
-	}
+}
+
+bool Bullet::getState(){
+	return state;
+}
+void Bullet::setState(bool a){
+	state = a;
+}
