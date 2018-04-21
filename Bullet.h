@@ -28,12 +28,13 @@ public:
 	Bullet(int x, int y);
 	Bullet();
 	~Bullet();
-	void eraseShip(SDL_Plotter &g, int x, int y);
+	void eraseShip(SDL_Plotter &g);
 	void setX(int x);
 	void setY(int y);
 	int getX();
 	int getY();
 	void draw(SDL_Plotter &g);
+	void destroy(SDL_Plotter &g);
 };
 
 #endif // BULLET_H_

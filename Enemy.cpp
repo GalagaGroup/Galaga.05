@@ -98,13 +98,13 @@
 	}
     void Enemy::draw(SDL_Plotter &g){
 		for(int j = 0; j < 30; j++){
-            for(int i = 0; i < 35; i++){
+            for(int i = 0; i < 30; i++){
                     if (pic[i][j] == 'B'){
                         //is black no need to paint
                     }else if(pic[i][j] == 'R'){
                         g.plotPixel(j + posx, i + posy, 255, 0, 0);
                     }else if(pic[i][j] == 'W'){
-                        g.plotPixel(j  + posx, i + posy, 255, 255, 255);
+                        g.plotPixel(i  + posx, j + posy,  255, 255, 255);
                     }else if(pic[i][j] == 'Q'){
                         g.plotPixel(j  + posx, i + posy, 0, 0, 255);
                     }else if(pic[i][j] == 'G'){
@@ -124,7 +124,7 @@
     }
     void Enemy::eraseShip(SDL_Plotter &g){
 		for(int i = 0; i < 34; i++){
-            for(int j = 0; j < 31; j++){
+            for(int j = 0; j < 55; j++){
                      //cout << x + i << " " << y + j << endl;
                         g.plotPixel(posx + i, posy + j, 0, 0, 0);
             }
@@ -144,4 +144,11 @@
 	}
 	int Enemy::getY(){
 		return posy;
+	}
+	bool Enemy::isDead(SDL_Plotter &g){
+		return dead;
+	}
+	void Enemy::setDead(bool a){
+		cout << "setdead" << endl;
+		dead = a;
 	}

@@ -31,24 +31,32 @@ void Bullet::draw(SDL_Plotter &g){
 void Bullet::setX(int x){
     posx = x;
 }
-	void Bullet::setY(int y){
-        posy = y;
+
+void Bullet::setY(int y){
+	posy = y;
+}
+
+int Bullet::getX(){
+	return posx;
+}
+
+int Bullet::getY(){
+	return posy;
+}
+
+void Bullet::eraseShip(SDL_Plotter &g){
+	for(int i = 0; i < 6; i++){
+		for(int j = 0; j < 16; j++){
+					g.plotPixel(posx + i, posy + j, 0, 0, 0);
+		}
 	}
-	int Bullet::getX(){
-        return posx;
-	}
-	int Bullet::getY(){
-        return posy;
-	}
-	void Bullet::eraseShip(SDL_Plotter &g, int x, int y){
-         //cout << "Before: " << endl;
-        for(int i = 0; i < 6; i++){
-            for(int j = 0; j < 16; j++){
-                     //cout << x + i << " " << y + j << endl;
-                        g.plotPixel(x + i, y + j, 0, 0, 0);
-            }
-        }
- }
+}
+void Bullet::destroy(SDL_Plotter &g){
+	eraseShip(g);
+	posx = 1;
+	posy = 785;
+	eraseShip(g);
+}
 
 
 	Bullet::~Bullet(){
