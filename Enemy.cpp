@@ -137,6 +137,7 @@
 		eraseShip(g);
 		posx = 1;
 		posy = 1;
+		eraseShip(g);
     }
 
     void Enemy::setX(int x){
@@ -158,6 +159,5 @@
 		return dead;
 	}
 	void Enemy::setState(bool a){
-		cout << "setdead" << endl;
 		dead = a;
 	}

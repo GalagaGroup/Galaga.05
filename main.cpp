@@ -58,11 +58,13 @@ int main(int argc, char ** argv)
                 movement = -7;
             }
             else if(key_pressed == ' '){
+                    bool shot = false;
                 for(int i = 0; i < 2; i++){
-                    if(Bullets[i].getState() == false){
+                    if(Bullets[i].getState() == false && shot == false){
                     Bullets[i].setX(star.getX() + 10);
                     Bullets[i].setY(star.getY() - 10);
                     Bullets[i].setState(true);
+                    shot = true;
                     }
                 }
             }
@@ -89,7 +91,6 @@ int main(int argc, char ** argv)
         for(int i = 0; i < 32; i++){
             for(int j = 0; j < 2; j++){
                 if(Bullets[j].getY() > Enemies[i].getY() && Bullets[j].getY() < Enemies[i].getY() + 30){
-                    cout << "in the y val" << endl;
                     if(Bullets[j].getX() > Enemies[i].getX() && Bullets[j].getX() < Enemies[i].getX() + 30){
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
@@ -100,7 +101,7 @@ int main(int argc, char ** argv)
 
         //move and update enemies
         for(int i = 0; i < 32; i++){
-                if(Enemies[i].getState(g)){
+                if(Enemies[i].getState(g) == true){
                     Enemies[i].eraseShip(g);
                     Enemies[i].setY(660);
                     Enemies[i].setX(0);
