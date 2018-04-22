@@ -68,7 +68,7 @@ void numbersinit(int (&numbers_graphics)[10][25][25]){
     ifstream inNumbers;
     inNumbers.open("Numbers.txt");
 
-    for(int i = 0; i < 26; i++){
+    for(int i = 0; i < 10; i++){
         for(int j = 0; j < 25; j++){
             for(int k = 0; k < 25; k++){
                 inNumbers >> numbers_graphics[i][j][k];
@@ -113,7 +113,9 @@ void clearScore(SDL_Plotter &g){
 }
 
 void incrementScore(SDL_Plotter &g, int &score, int (&numbers_graphics)[10][25][25]){
-    score += 100;
+    cout << score << endl;
+    score = score + 100;
+    cout << score << endl;
     int singlenum = score;
     int counter = 0;
     int mod = 10000;
@@ -125,8 +127,7 @@ void incrementScore(SDL_Plotter &g, int &score, int (&numbers_graphics)[10][25][
         for(int i = 0; i < 25; i++){
             for(int j = 0; j < 25; j++){
                 if(numbers_graphics[singlenum][i][j] == 1){
-                        cout << singlenum << endl;
-                     g.plotPixel(190 + i + (counter * 30), 25 + j , 255,0,0);
+                    g.plotPixel(190 + j + (counter * 30), 25 + i , 255 , 0 , 0 );
                 }
 
             }

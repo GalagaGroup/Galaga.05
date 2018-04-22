@@ -13,7 +13,7 @@ int main(int argc, char ** argv)
     int ROW_MAX = 800;
     int COL_MAX = 600;
     int framecounter = 0;
-    int score = 0;
+    static int score = 0;
     static int letter_graphics[26][25][25];
     static int number_graphics[10][25][25];
 
@@ -49,8 +49,11 @@ int main(int argc, char ** argv)
         Enemies[i].draw(g);
     }
 
+    //main game loop
     while (!g.getQuit())
     {
+        if(score != 0)
+            cout << "Beginning: " << score << endl;
         //get input and move starship
         if(g.kbhit()){
             int movement = 0;
@@ -79,6 +82,8 @@ int main(int argc, char ** argv)
             star.moveShip(movement, g);
             star.draw(g);
         }
+        if(score != 0)
+        cout << "85: " << score << endl;
 
         //move and update bullet
         for(int i = 0; i < 2; i++){
@@ -93,7 +98,8 @@ int main(int argc, char ** argv)
                 }
             }
         }
-
+        if(score != 0)
+        cout << "100: " << score << endl;
         //test for collision
         for(int i = 0; i < 32; i++){
             for(int j = 0; j < 2; j++){
@@ -103,11 +109,13 @@ int main(int argc, char ** argv)
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
                         incrementScore(g, score, number_graphics);
+                        cout << "just after " << score << endl;
                     }
                 }
             }
         }
-
+        if(score != 0)
+        cout << "114: " << score << endl;
         //move and update enemies
         for(int i = 0; i < 32; i++){
             if(Enemies[i].getState() == false){
@@ -121,7 +129,8 @@ int main(int argc, char ** argv)
                 }
             }
         }
-
+        if(score != 0)
+        cout << "128: " << score << endl;
         framecounter++;
 		g.update();
     }
