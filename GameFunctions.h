@@ -49,37 +49,73 @@ void EnemyInit(Enemy enemies[32], int a){
 
 }
 
-void scoreinit(string score, SDL_Plotter &g){
+void lettersinit(int (&letters_graphics)[26][25][25]){
     ifstream inLetters;
     inLetters.open("Letters.txt");
-    int letter_graphics[26][25][25];
+    static int letter_graphics[26][25][25];
 
     for(int i = 0; i < 26; i++){
         for(int j = 0; j < 25; j++){
             for(int k = 0; k < 25; k++){
                 inLetters >> letter_graphics[i][j][k];
-
             }
         }
     }
+    inLetters.close();
+    cout << "letter initialized" << endl;
+}
+void scoreboard(string score, int (&letter_graphics)[26][25][25], SDL_Plotter &g){
     for(int i = 0; i < score.length(); i++){
         string letter;
         int intletter;
         letter = score.substr(i, 1);
-        intletter = int(letter.c_str()[0]);
-        cout << intletter << endl;
-        intletter = (intletter - 65);
+        if (letter == " "){
+            //no graphic needed for space
+        }else{
+            intletter = int(letter.c_str()[0]);
+            intletter = (intletter - 65);
+            cout << letter << " " << intletter << endl;
 
-        cout << "letter " << letter << " " << intletter << endl;
-
-        for(int j = 0; j < 25; j++){
-            for (int k = 0; k < 25;k++){
-                if(letter_graphics[intletter][k][j] == 1){
-                    g.plotPixel(10 + j + (i * 30), 15 + k, 255, 0, 0);
+            for(int j = 0; j < 25; j++){
+                for (int k = 0; k < 25;k++){
+                    if(letter_graphics[intletter][k][j] == 1){
+                        g.plotPixel(10 + j + (i * 30), 15 + k, 255, 0, 0);
+                    }
                 }
             }
         }
     }
+    cout << "graphic printed" << endl;
+}
+
+void clearScore(SDL_Plotter &g){
+    for(int i = 0; i < 400; i++){
+        for(int j = 0; j < 30; j++){
+            g.plotPixel(10 + i , 15 + j, 255,255,255);
+        }
+    }
+    cout << "score cleared" << endl;
+}
+
+void numbersinit(int (&numbers_graphics)[10][25][25]){
+    ifstream inNumbers;
+    inNumbers.open("Numbers.txt");
+
+    for(int i = 0; i < 26; i++){
+        for(int j = 0; j < 25; j++){
+            for(int k = 0; k < 25; k++){
+                inNumbers >> numbers_graphics[i][j][k];
+            }
+        }
+    }
+    inNumbers.close();
+    cout << "numbers initialised" << endl;
+}
+
+void incrementScore(SDL_Plotter &g, int score){
+    score = score + 100;
+
+
 }
 
 

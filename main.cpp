@@ -14,6 +14,8 @@ int main(int argc, char ** argv)
     int COL_MAX = 600;
     int framecounter = 0;
     int score = 0;
+    static int letter_graphics[26][25][25];
+    static int number_graphics[10][25][25];
 
 
     // create window with max row and max col values
@@ -25,7 +27,10 @@ int main(int argc, char ** argv)
     }
 
     //init. score
-    scoreinit("AMANDA", g);
+    lettersinit(letter_graphics);
+    numbersinit(number_graphics);
+
+    scoreboard("SCORE", letter_graphics , g);
 
 
     // ceate starship
@@ -97,7 +102,8 @@ int main(int argc, char ** argv)
                         //bullet colided
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
-                        //Score(g);
+                        clearScore(g);
+                        incrementScore(g, score);
                     }
                 }
             }
