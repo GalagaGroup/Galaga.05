@@ -133,9 +133,9 @@
     void Enemy::kill(SDL_Plotter &g){
 		state = false;
 		eraseShip(g);
-		posx = 1;
-		posy = 300;
-		eraseShip(g);
+		posx = 570;
+		posy = 1;
+		//eraseShip(g);
     }
 
     void Enemy::setX(int x){

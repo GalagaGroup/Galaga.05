@@ -14,6 +14,7 @@ int main(int argc, char ** argv)
     int COL_MAX = 600;
     int framecounter = 0;
     int score = 0;
+    int frequency  = 700;
     static int letter_graphics[26][25][25];
     static int number_graphics[10][25][25];
 
@@ -113,11 +114,12 @@ int main(int argc, char ** argv)
             }
         }
 
+        //move enemies
         for(int i = 0; i < 32; i++){
             if(Enemies[i].getState() == false){
                 //theyre dead and shouldnt be moved or diaplayed
             }
-            else if(framecounter % 600 == 0){
+            else if(framecounter % frequency == 0){
                 if(Enemies[i].posy < 700 || Enemies[i].posy > 50){
                     Enemies[i].eraseShip(g);
                     Enemies[i].setY(Enemies[i].posy + 10);
@@ -128,6 +130,15 @@ int main(int argc, char ** argv)
 
         framecounter++;
 		g.update();
+
+		if(score == 3200){
+                frequency -= 50;
+            EnemyInit(Enemies, 200);
+            for (int i = 0; i < 32; i++){
+                Enemies[i].draw(g);
+            }
+		}
+
     }
     return 0;
 }
