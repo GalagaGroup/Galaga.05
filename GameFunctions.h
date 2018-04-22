@@ -112,22 +112,20 @@ void clearScore(SDL_Plotter &g){
     cout << "score cleared" << endl;
 }
 
-void incrementScore(SDL_Plotter &g, int &score, int (&numbers_graphics)[10][25][25]){
-    cout << score << endl;
-    score = score + 100;
-    cout << score << endl;
+void printScore(SDL_Plotter &g, int &score, int numbers_graphics[][25][25]){
+    clearScore(g);
+    int scoreseperator = score;
     int singlenum = score;
     int counter = 0;
     int mod = 10000;
     do {
         singlenum = (score - (score % mod)) / mod;
-        score = score - (score - (score % mod));
         mod /= 10;
         counter ++;
         for(int i = 0; i < 25; i++){
             for(int j = 0; j < 25; j++){
                 if(numbers_graphics[singlenum][i][j] == 1){
-                    g.plotPixel(190 + j + (counter * 30), 25 + i , 255 , 0 , 0 );
+                    g.plotPixel(190 + j + (counter * 30), 20 + i , 255 , 0 , 0 );
                 }
 
             }
