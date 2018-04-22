@@ -123,8 +123,8 @@
 		posy = posy + y;
     }
     void Enemy::eraseShip(SDL_Plotter &g){
-		for(int i = 0; i < 34; i++){
-            for(int j = 0; j < 55; j++){
+		for(int i = 0; i < 30; i++){
+            for(int j = 0; j < 45; j++){
                      //cout << x + i << " " << y + j << endl;
                         g.plotPixel(posx + i, posy + j, 0, 0, 0);
             }

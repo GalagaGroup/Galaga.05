@@ -9,13 +9,10 @@ using namespace std;
 
 int main(int argc, char ** argv)
 {
-    bool bullet;
     char key_pressed;
     int ROW_MAX = 800;
     int COL_MAX = 600;
     int framecounter = 0;
-    int top_row = 130;
-    int bottom_row = 170;
     int score = 0;
 
 
@@ -28,7 +25,7 @@ int main(int argc, char ** argv)
     }
 
     //init. score
-    initScore("SCORE", g);
+    scoreinit("AMANDA", g);
 
 
     // ceate starship
@@ -100,7 +97,7 @@ int main(int argc, char ** argv)
                         //bullet colided
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
-                        Score(g);
+                        //Score(g);
                     }
                 }
             }

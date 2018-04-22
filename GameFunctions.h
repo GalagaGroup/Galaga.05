@@ -3,6 +3,7 @@
 
 #include "Enemy.h"
 #include <fstream>
+#include <string>
 
 void EnemyInit(Enemy enemies[32], int a){
 
@@ -51,14 +52,38 @@ void EnemyInit(Enemy enemies[32], int a){
 void scoreinit(string score, SDL_Plotter &g){
     ifstream inLetters;
     inLetters.open("Letters.txt");
-    for(int i = 0; i < score.length(); i++){
-        for(int i = 0' i < score.substr(i, 1)){
-            for(int i = 0; i < )
+    int letter_graphics[26][25][25];
+
+    for(int i = 0; i < 26; i++){
+        for(int j = 0; j < 25; j++){
+            for(int k = 0; k < 25; k++){
+                inLetters >> letter_graphics[i][j][k];
+
+            }
         }
     }
+    for(int i = 0; i < score.length(); i++){
+        string letter;
+        int intletter;
+        letter = score.substr(i, 1);
+        intletter = int(letter.c_str()[0]);
+        cout << intletter << endl;
+        intletter = (intletter - 65);
 
+        cout << "letter " << letter << " " << intletter << endl;
 
+        for(int j = 0; j < 25; j++){
+            for (int k = 0; k < 25;k++){
+                if(letter_graphics[intletter][k][j] == 1){
+                    g.plotPixel(10 + j + (i * 30), 15 + k, 255, 0, 0);
+                }
+            }
+        }
+    }
 }
+
+
+
 
 
 #endif // FUNCTIONS_H_

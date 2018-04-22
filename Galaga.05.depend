@@ -465,13 +465,13 @@
 1524091152 source:h:\galaga.05\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1524347162 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\main.cpp
+1524364710 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\main.cpp
 	<iostream>
 	"SDL_Plotter.h"
 	"Starfighter.h"
 	"Bullet.h"
 	"Enemy.h"
-	"Functions.h"
+	"GameFunctions.h"
 
 1524091140 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl_plotter.h
 	<SDL2/SDL.h>
@@ -1216,7 +1216,7 @@
 	"Bullet.h"
 	<iostream>
 
-1524346455 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemy.cpp
+1524357053 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemy.cpp
 	"Enemy.h"
 
 1524346444 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemy.h
@@ -1227,4 +1227,9 @@
 
 1524347205 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\functions.h
 	"Enemy.h"
+
+1524365319 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\gamefunctions.h
+	"Enemy.h"
+	<fstream>
+	<string>
 
