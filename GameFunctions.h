@@ -100,24 +100,41 @@ void scoreboard(string score, int (&letter_graphics)[26][25][25], SDL_Plotter &g
             }
         }
     }
-    cout << "graphic printed" << endl;
 }
 
 void clearScore(SDL_Plotter &g){
     for(int i = 0; i < 200; i++){
-        for(int j = 0; j < 30; j++){
+        for(int j = 0; j < 35; j++){
             g.plotPixel(190 + i , 15 + j, 0,0,0);
         }
     }
-    cout << "score cleared" << endl;
 }
 
-void printScore(SDL_Plotter &g, int &score, int numbers_graphics[][25][25]){
+void printScore(SDL_Plotter &g, int score, int numbers_graphics[][25][25]){
     clearScore(g);
-    int scoreseperator = score;
+    int singlenum;
+    string str_score = to_string(score);
+    string element;
+    int counter = 0;
+
+    for(int i = 0; i < str_score.length(); i ++){
+        counter++;
+        element = str_score.substr(i,1);
+        singlenum = element.c_str()[0] - 48;
+        for(int i = 0; i < 25; i++){
+            for(int j = 0; j < 25; j++){
+                if(numbers_graphics[singlenum][i][j] == 1){
+                    g.plotPixel(190 + j + (counter * 30), 20 + i , 255 , 0 , 0 );
+                }
+            }
+        }
+    }
+}
+/*
+ clearScore(g);
     int singlenum = score;
     int counter = 0;
-    int mod = 10000;
+    int mod = 1000;
     do {
         singlenum = (score - (score % mod)) / mod;
         mod /= 10;
@@ -127,13 +144,12 @@ void printScore(SDL_Plotter &g, int &score, int numbers_graphics[][25][25]){
                 if(numbers_graphics[singlenum][i][j] == 1){
                     g.plotPixel(190 + j + (counter * 30), 20 + i , 255 , 0 , 0 );
                 }
-
             }
+            cout << mod << " " << singlenum << endl;
         }
     }while (mod != 0);
-}
-
-
+    cout << "finished" << endl;
+*/
 
 
 

@@ -85,7 +85,7 @@ int main(int argc, char ** argv)
         //move and update bullet
         for(int i = 0; i < 2; i++){
             if(Bullets[i].getState() == true){
-                if(Bullets[i].getY() > 10 && Bullets[i].getY() < ROW_MAX - 10 && Bullets[i].getX() > 15){
+                if(Bullets[i].getY() > 100 && Bullets[i].getY() < ROW_MAX - 10 && Bullets[i].getX() > 15){
                 Bullets[i].eraseShip(g);
                 Bullets[i].setY(Bullets[i].getY() - 1);
                 Bullets[i].draw(g);
@@ -94,6 +94,7 @@ int main(int argc, char ** argv)
                     Bullets[i].destroy(g);
                 }
             }
+            printScore(g, score, number_graphics);
         }
 
         //test for collision
