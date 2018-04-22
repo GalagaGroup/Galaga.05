@@ -52,18 +52,33 @@ void EnemyInit(Enemy enemies[32], int a){
 void lettersinit(int (&letters_graphics)[26][25][25]){
     ifstream inLetters;
     inLetters.open("Letters.txt");
-    static int letter_graphics[26][25][25];
 
     for(int i = 0; i < 26; i++){
         for(int j = 0; j < 25; j++){
             for(int k = 0; k < 25; k++){
-                inLetters >> letter_graphics[i][j][k];
+                inLetters >> letters_graphics[i][j][k];
             }
         }
     }
     inLetters.close();
     cout << "letter initialized" << endl;
 }
+
+void numbersinit(int (&numbers_graphics)[10][25][25]){
+    ifstream inNumbers;
+    inNumbers.open("Numbers.txt");
+
+    for(int i = 0; i < 26; i++){
+        for(int j = 0; j < 25; j++){
+            for(int k = 0; k < 25; k++){
+                inNumbers >> numbers_graphics[i][j][k];
+            }
+        }
+    }
+    inNumbers.close();
+    cout << "numbers initialised" << endl;
+}
+
 void scoreboard(string score, int (&letter_graphics)[26][25][25], SDL_Plotter &g){
     for(int i = 0; i < score.length(); i++){
         string letter;
@@ -89,34 +104,37 @@ void scoreboard(string score, int (&letter_graphics)[26][25][25], SDL_Plotter &g
 }
 
 void clearScore(SDL_Plotter &g){
-    for(int i = 0; i < 400; i++){
+    for(int i = 0; i < 200; i++){
         for(int j = 0; j < 30; j++){
-            g.plotPixel(10 + i , 15 + j, 255,255,255);
+            g.plotPixel(190 + i , 15 + j, 0,0,0);
         }
     }
     cout << "score cleared" << endl;
 }
 
-void numbersinit(int (&numbers_graphics)[10][25][25]){
-    ifstream inNumbers;
-    inNumbers.open("Numbers.txt");
+void incrementScore(SDL_Plotter &g, int &score, int (&numbers_graphics)[10][25][25]){
+    score += 100;
+    int singlenum = score;
+    int counter = 0;
+    int mod = 10000;
+    do {
+        singlenum = (score - (score % mod)) / mod;
+        score = score - (score - (score % mod));
+        mod /= 10;
+        counter ++;
+        for(int i = 0; i < 25; i++){
+            for(int j = 0; j < 25; j++){
+                if(numbers_graphics[singlenum][i][j] == 1){
+                        cout << singlenum << endl;
+                     g.plotPixel(190 + i + (counter * 30), 25 + j , 255,0,0);
+                }
 
-    for(int i = 0; i < 26; i++){
-        for(int j = 0; j < 25; j++){
-            for(int k = 0; k < 25; k++){
-                inNumbers >> numbers_graphics[i][j][k];
             }
         }
-    }
-    inNumbers.close();
-    cout << "numbers initialised" << endl;
+    }while (mod != 0);
 }
 
-void incrementScore(SDL_Plotter &g, int score){
-    score = score + 100;
 
-
-}
 
 
 

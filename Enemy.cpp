@@ -135,7 +135,7 @@
 		state = false;
 		eraseShip(g);
 		posx = 1;
-		posy = 1;
+		posy = 300;
 		eraseShip(g);
     }
 

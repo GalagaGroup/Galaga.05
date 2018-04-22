@@ -102,8 +102,7 @@ int main(int argc, char ** argv)
                         //bullet colided
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
-                        clearScore(g);
-                        incrementScore(g, score);
+                        incrementScore(g, score, number_graphics);
                     }
                 }
             }
