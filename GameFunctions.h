@@ -8,44 +8,44 @@
 void EnemyInit(Enemy enemies[32], int a){
 
     //top left row
-    enemies[0] = Enemy (20, a, 2);
-    enemies[1] = Enemy (50, a, 2);
-    enemies[2] = Enemy (80, a, 2);
-    enemies[3] = Enemy (110, a, 2);
-    enemies[4] = Enemy (140, a, 2);
-    enemies[5] = Enemy (170, a, 2);
-    enemies[6] = Enemy (200, a, 2);
-    enemies[7] = Enemy (230, a, 2);
+    enemies[0] = Enemy (20, a, 2, true);
+    enemies[1] = Enemy (50, a, 2, true);
+    enemies[2] = Enemy (80, a, 2, true);
+    enemies[3] = Enemy (110, a, 2, true);
+    enemies[4] = Enemy (140, a, 2, true);
+    enemies[5] = Enemy (170, a, 2, true);
+    enemies[6] = Enemy (200, a, 2, true);
+    enemies[7] = Enemy (230, a, 2, true);
 
     //top right row
-    enemies[8] = Enemy (340, a, 2);
-    enemies[9] = Enemy (370, a, 2);
-    enemies[10] = Enemy (400, a, 2);
-    enemies[11] = Enemy (430, a, 2);
-    enemies[12] = Enemy (460, a, 2);
-    enemies[13] = Enemy (490, a, 2);
-    enemies[14] = Enemy (520, a, 2);
-    enemies[15] = Enemy (550, a, 2);
+    enemies[8] = Enemy (340, a, 2, true);
+    enemies[9] = Enemy (370, a, 2, true);
+    enemies[10] = Enemy (400, a, 2, true);
+    enemies[11] = Enemy (430, a, 2, true);
+    enemies[12] = Enemy (460, a, 2, true);
+    enemies[13] = Enemy (490, a, 2, true);
+    enemies[14] = Enemy (520, a, 2, true);
+    enemies[15] = Enemy (550, a, 2, true);
 
     //bottom left row
-    enemies[16] = Enemy (20, a + 40, 2);
-    enemies[17] = Enemy (50, a + 40, 2);
-    enemies[18] = Enemy (80, a + 40, 2);
-    enemies[19] = Enemy (110, a + 40, 2);
-    enemies[20] = Enemy (140, a + 40, 2);
-    enemies[21] = Enemy (170, a + 40, 2);
-    enemies[22] = Enemy (200, a + 40, 2);
-    enemies[23] = Enemy (230, a + 40, 2);
+    enemies[16] = Enemy (20, a + 40, 2, true);
+    enemies[17] = Enemy (50, a + 40, 2, true);
+    enemies[18] = Enemy (80, a + 40, 2, true);
+    enemies[19] = Enemy (110, a + 40, 2, true);
+    enemies[20] = Enemy (140, a + 40, 2, true);
+    enemies[21] = Enemy (170, a + 40, 2, true);
+    enemies[22] = Enemy (200, a + 40, 2, true);
+    enemies[23] = Enemy (230, a + 40, 2, true);
 
     //bottom right row
-    enemies[24] = Enemy (340, a + 40, 2);
-    enemies[25] = Enemy (370, a + 40, 2);
-    enemies[26] = Enemy (400, a + 40, 2);
-    enemies[27] = Enemy (430, a + 40, 2);
-    enemies[28] = Enemy (460, a + 40, 2);
-    enemies[29] = Enemy (490, a + 40, 2);
-    enemies[30] = Enemy (520, a + 40, 2);
-    enemies[31] = Enemy (550, a + 40, 2);
+    enemies[24] = Enemy (340, a + 40, 2, true);
+    enemies[25] = Enemy (370, a + 40, 2, true);
+    enemies[26] = Enemy (400, a + 40, 2, true);
+    enemies[27] = Enemy (430, a + 40, 2, true);
+    enemies[28] = Enemy (460, a + 40, 2, true);
+    enemies[29] = Enemy (490, a + 40, 2, true);
+    enemies[30] = Enemy (520, a + 40, 2, true);
+    enemies[31] = Enemy (550, a + 40, 2, true);
 
 }
 
@@ -124,7 +124,7 @@ void printScore(SDL_Plotter &g, int score, int numbers_graphics[][25][25]){
         for(int i = 0; i < 25; i++){
             for(int j = 0; j < 25; j++){
                 if(numbers_graphics[singlenum][i][j] == 1){
-                    g.plotPixel(190 + j + (counter * 30), 20 + i , 255 , 0 , 0 );
+                    g.plotPixel(190 + j + (counter * 30), 15 + i , 255 , 0 , 0 );
                 }
             }
         }
@@ -169,6 +169,22 @@ void collisionTest(SDL_Plotter &g,Bullet Bullets[], Enemy Enemies[],  int &score
                 }
             }
         }
+}
+
+void loose(SDL_Plottter &g, Enemy Enemies[], Starfighter star){
+    for(int i = 0; i < 32; i++){
+        Enemies[i].kill(g);
+    }
+    star.setLiving(false);
+
+}
+
+void printMessage(SDL_Plotter &g, letter_graphics[][25][25], int x, int y, string message){
+    for(int i = 0; i < 25; i ++){
+        for(int j = 0; j < 25; j++){
+            for(itn )
+        }
+    }
 }
 
 

@@ -1,10 +1,10 @@
 #include "Enemy.h"
 
-	Enemy::Enemy(int x, int y, int type){
+	Enemy::Enemy(int x, int y, int type,bool a){
 		health = 1;
 		posx = x;
 		posy = y;
-		state = true;
+		state = a;
 		const char moth[34][30] = {	'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Y', 'Y', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B',//1
 									'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Y', 'Y', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B',//1
 									'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'R', 'R', 'Y', 'Y', 'R', 'R', 'B', 'B', 'B', 'B', 'Q', 'Q', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//2

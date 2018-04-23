@@ -20,7 +20,7 @@ public:
 	void kill(SDL_Plotter &g);
 	void draw(SDL_Plotter &g);
 	bool getState();
-	Enemy(int x, int y, int type);
+	Enemy(int x, int y, int type, bool);
 	void eraseShip(SDL_Plotter &g);
     void moveShip(int x, int y, SDL_Plotter &g);
 };

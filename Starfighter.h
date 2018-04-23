@@ -9,7 +9,9 @@
 class Starfighter
 {
     public:
-        int health;
+        bool living = true;
+        bool getLiving();
+        void setLiving(bool a);
         int posx;
         int posy;
         char pic[34][30];
@@ -19,6 +21,7 @@ class Starfighter
         void setposY(int y);
         int getX();
         int getY();
+        void hit();
         void draw(SDL_Plotter &g);
         void moveShip(int a, SDL_Plotter &g);
         void eraseShip(SDL_Plotter &g);

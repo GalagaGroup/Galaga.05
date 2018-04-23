@@ -49,20 +49,6 @@ int main(int argc, char ** argv)
     //main game loop
     while (!g.getQuit())
     {
-
-        //background
-        //clearScreen(ROW_MAX, COL_MAX, g);
-        /*
-        int background[100][3];
-        for(int i = 0; i < 100; i++){
-            for (int j = 0; j < 3; j++){
-                background[i][j] = rand() % 256;
-            }
-        }
-        */
-
-
-
         //get input and move starship
         if(g.kbhit()){
             int movement = 0;
@@ -105,23 +91,25 @@ int main(int argc, char ** argv)
                 //theyre dead and shouldnt be moved or diaplayed
             }
             else if(framecounter % frequency == 0){
-                if(Enemies[i].posy < 700 || Enemies[i].posy > 50){
+                if(Enemies[i].posy < ROW_MAX && Enemies[i].posy > 50){
                     Enemies[i].eraseShip(g);
                     Enemies[i].setY(Enemies[i].posy + 10);
                     Enemies[i].draw(g);
-                }
+                }else
             }
         }
 
         framecounter++;
 		g.update();
 
-		if(score == 3200){
-                frequency -= 50;
-            EnemyInit(Enemies, 200);
-            for (int i = 0; i < 32; i++){
-                Enemies[i].draw(g);
-            }
+		bool allDead = true;
+		for(int i = 0; i < 32; i ++){
+            if(Enemies[i].getState() == true)
+                allDead = false;
+		}
+		if(allDead == true && star.getLiving() == dead){
+            EnemyInit(Enemies, 100);
+            frequency = frequency - 100;
 		}
 
     }

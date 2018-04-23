@@ -2,7 +2,7 @@
 
 Starfighter::Starfighter()
 {
-        health = 1;
+        bool living = true;
         posx = 285;
         posy = 700;
         char graphic[34][30] = {        'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'W', 'W', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',//1
@@ -93,4 +93,10 @@ int Starfighter::getX(){
 }
 int Starfighter::getY(){
         return posy;
+}
+bool Starfighter::getLiving(){
+        return living;
+}
+void Starfighter::setLiving(bool a){
+        living = a;
 }

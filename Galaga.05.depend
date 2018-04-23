@@ -465,7 +465,7 @@
 1524091152 source:h:\galaga.05\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1524444215 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\main.cpp
+1524453145 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\main.cpp
 	<iostream>
 	"SDL_Plotter.h"
 	"Starfighter.h"
@@ -482,14 +482,14 @@
 	<string.h>
 	<map>
 
-1524199805 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.h
+1524500731 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.h
 	<string.h>
 	"SDL_Plotter.h"
 
 1524105674 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1524333170 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.cpp
+1524500777 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\starfighter.cpp
 	"Starfighter.h"
 
 1512333750 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl2\sdl.h
@@ -1216,10 +1216,10 @@
 	"Bullet.h"
 	<iostream>
 
-1524439352 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemy.cpp
+1524498798 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemy.cpp
 	"Enemy.h"
 
-1524346444 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemy.h
+1524498825 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemy.h
 	"SDL_Plotter.h"
 
 1524332776 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\enemyinit.h
