@@ -130,26 +130,48 @@ void printScore(SDL_Plotter &g, int score, int numbers_graphics[][25][25]){
         }
     }
 }
-/*
- clearScore(g);
-    int singlenum = score;
-    int counter = 0;
-    int mod = 1000;
-    do {
-        singlenum = (score - (score % mod)) / mod;
-        mod /= 10;
-        counter ++;
-        for(int i = 0; i < 25; i++){
-            for(int j = 0; j < 25; j++){
-                if(numbers_graphics[singlenum][i][j] == 1){
-                    g.plotPixel(190 + j + (counter * 30), 20 + i , 255 , 0 , 0 );
+
+void clearScreen(int ROW_MAX, int COL_MAX, SDL_Plotter &g){
+    for(int i = 0; i < ROW_MAX; i++){
+        for(int j = 0; j < COL_MAX ; j++){
+            g.plotPixel(j, i, 0, 0, 0);
+        }
+    }
+}
+
+void updateBullet(Bullet Bullets[], SDL_Plotter &g, Starfighter star, int ROW_MAX){
+    for(int i = 0; i < 2; i++){
+        if(Bullets[i].getState() == true){
+            if(Bullets[i].getY() > 100 && Bullets[i].getY() < ROW_MAX - 10 && Bullets[i].getX() > 15){
+            Bullets[i].eraseShip(g);
+            Bullets[i].setY(Bullets[i].getY() - 1);
+            Bullets[i].draw(g);
+            star.draw(g);
+            }else{
+                Bullets[i].destroy(g);
+            }
+        }
+    }
+}
+
+void collisionTest(SDL_Plotter &g,Bullet Bullets[], Enemy Enemies[],  int &score, int number_graphics[][25][25]){
+    for(int i = 0; i < 32; i++){
+            for(int j = 0; j < 2; j++){
+                if(Bullets[j].getY() > Enemies[i].getY() && Bullets[j].getY() < Enemies[i].getY() + 30){
+                    if(Bullets[j].getX() > Enemies[i].getX() && Bullets[j].getX() < Enemies[i].getX() + 30){
+                        //bullet colided
+                        Enemies[i].kill(g);
+                        Bullets[j].destroy(g);
+                        score += 100;
+                        printScore(g, score, number_graphics);
+                        cout << "just after " << score << endl;
+                    }
                 }
             }
-            cout << mod << " " << singlenum << endl;
         }
-    }while (mod != 0);
-    cout << "finished" << endl;
-*/
+}
+
+
 
 
 

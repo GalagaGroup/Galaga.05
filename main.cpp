@@ -18,14 +18,9 @@ int main(int argc, char ** argv)
     static int letter_graphics[26][25][25];
     static int number_graphics[10][25][25];
 
-
     // create window with max row and max col values
     SDL_Plotter g(ROW_MAX, COL_MAX);
-    for(int i = 0; i < COL_MAX; i++){
-        for(int j = 0; j < ROW_MAX; j++){
-            g.plotPixel(i , j, 0, 0, 0);
-        }
-    }
+    clearScreen(ROW_MAX, COL_MAX, g);
 
     //init. score
     lettersinit(letter_graphics);
@@ -54,6 +49,20 @@ int main(int argc, char ** argv)
     //main game loop
     while (!g.getQuit())
     {
+
+        //background
+        //clearScreen(ROW_MAX, COL_MAX, g);
+        /*
+        int background[100][3];
+        for(int i = 0; i < 100; i++){
+            for (int j = 0; j < 3; j++){
+                background[i][j] = rand() % 256;
+            }
+        }
+        */
+
+
+
         //get input and move starship
         if(g.kbhit()){
             int movement = 0;
@@ -84,35 +93,11 @@ int main(int argc, char ** argv)
         }
 
         //move and update bullet
-        for(int i = 0; i < 2; i++){
-            if(Bullets[i].getState() == true){
-                if(Bullets[i].getY() > 100 && Bullets[i].getY() < ROW_MAX - 10 && Bullets[i].getX() > 15){
-                Bullets[i].eraseShip(g);
-                Bullets[i].setY(Bullets[i].getY() - 1);
-                Bullets[i].draw(g);
-                star.draw(g);
-                }else{
-                    Bullets[i].destroy(g);
-                }
-            }
-            printScore(g, score, number_graphics);
-        }
+        updateBullet(Bullets, g, star, ROW_MAX);
+        printScore(g, score, number_graphics);
 
         //test for collision
-        for(int i = 0; i < 32; i++){
-            for(int j = 0; j < 2; j++){
-                if(Bullets[j].getY() > Enemies[i].getY() && Bullets[j].getY() < Enemies[i].getY() + 30){
-                    if(Bullets[j].getX() > Enemies[i].getX() && Bullets[j].getX() < Enemies[i].getX() + 30){
-                        //bullet colided
-                        Enemies[i].kill(g);
-                        Bullets[j].destroy(g);
-                        score += 100;
-                        printScore(g, score, number_graphics);
-                        cout << "just after " << score << endl;
-                    }
-                }
-            }
-        }
+        collisionTest(g, Bullets, Enemies, score, number_graphics);
 
         //move enemies
         for(int i = 0; i < 32; i++){
