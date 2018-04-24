@@ -53,22 +53,6 @@ void numbersinit(int numbers_graphics[][25][25]);
 
 /*
 Precondition:
-	a string, a 3D int array passed by refrence and an SDL_Plotter object
-	which is spassed by refrence. Two ints as well
-Postcondition:
-	The string in unchanged, the letter graphics are unchanged the Plotter
-	is changed, the ints are unchanged
-Return:
-	void
-Description:
-	The score string is printed to the screen using the letters from the
-	letter graphics array to the plotter window object. and at the coordinates
-	of the ints
-*/
-void scoreboard( string , int [26][25][25] , SDL_Plotter& , int , int  );
-
-/*
-Precondition:
 	A SDL_Plotter object exists and is passed by refrence as well as four ints
 Postcondition:
 	The SDL window is changed the ints are unchanged
@@ -79,7 +63,7 @@ Description:
 	staring at the coordinates of the first two ints and with the size of the
 	third and fourth ints
 */
-void clearScore( SDL_Plotter& , int , int , int , int);
+void clearArea( SDL_Plotter& , int , int , int , int);
 
 /*
 Precondition:
@@ -95,20 +79,9 @@ Description:
 	Number 3D int array with the coordinates mapped by the second and third
 	ints. The fourth and fifth ints size the clear region
 */
-void printScore( SDL_Plotter& , int  , int [][25][25] , int , int , int , int);
+void printNumber( SDL_Plotter& , int [][25][25] , int , int , int , int , int);
 
-/*
-Precondition:
-	two int values exist as well as a SDL plotter object by refrence
-Postcondition:
-	The plotter window is changed
-Return:
-	void
-Description:
-	The entire window is painted black the two int values are the max
-	values of the window(row and col)
-*/
-void clearScreen( int , int , SDL_Plotter& );
+void printNumber( SDL_Plotter &g , int numbers_graphics[][25][25] , int number );
 
 /*
 Precondition:

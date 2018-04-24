@@ -11,16 +11,18 @@ private:
 	int type;
 	int health;
 	bool state;
+	char pic[34][30];
+
 public:
 	Enemy();
 	int getX();
 	int getY();
-	bool getState();
-	void setState(bool a);
-	char pic[34][30];
 	void setX(int x);
 	void setY(int y);
+	bool getState();
+	void setState(bool a);
 	void setType(int a);
+
 	void kill(SDL_Plotter &g);
 	void draw(SDL_Plotter &g);
 	void eraseShip(SDL_Plotter &g);

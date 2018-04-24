@@ -8,20 +8,23 @@
 
 class Starfighter
 {
-    public:
+
+private:
         bool living = true;
-        bool getLiving();
-        void setLiving(bool a);
         int posx;
         int posy;
         char pic[34][30];
-        ~Starfighter();
+
+public:
         Starfighter();
-        void setposX(int x);
-        void setposY(int y);
         int getX();
         int getY();
+        void setX(int x);
+        void setY(int y);
+        bool getState();
+
         void hit();
+        void setState(bool a);
         void draw(SDL_Plotter &g);
         void moveShip(int a, SDL_Plotter &g);
         void eraseShip(SDL_Plotter &g);
@@ -29,7 +32,7 @@ class Starfighter
 
     protected:
 
-    private:
+
 };
 
 #endif // STARFIGHTER_H

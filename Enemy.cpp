@@ -129,22 +129,16 @@
 					g.plotPixel(posx + i, posy + j, 0, 0, 0);
             }
         }
-        cout << "erased ship" << endl;
     }
 
     void Enemy::setState(bool a){
 		state = a;
     }
     void Enemy::kill(SDL_Plotter &g){
-    	cout << "1killing" << endl;
 		state = false;
-		cout << "2killing" << posx << " , " << posy << endl;
 		eraseShip(g);
-		cout << "3killing" << endl;
 		posx = 1;
-		cout << "4killing" << endl;
 		posy = 100;
-		cout << "5killing" << endl;
     }
 
     void Enemy::setX(int x){

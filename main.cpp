@@ -22,23 +22,23 @@ int main(int argc, char ** argv)
 
     // create window with max row and max col values
     SDL_Plotter g(ROW_MAX, COL_MAX);
-    clearScreen(ROW_MAX, COL_MAX, g);
+    clearArea(g , 0 , 0 , ROW_MAX , COL_MAX);
 
     //init. score
     lettersinit(letter_graphics);
     numbersinit(number_graphics);
 
-    scoreboard("HIGHSCORE", letter_graphics , g , 180 , 15);
-    printScore(g, score, number_graphics, 240, 50 , 35 , 200);
+    printMessage( g , letter_graphics ,  180 , 15 , "HIGHSCORE");
+    printNumber( g , number_graphics , 240 , 50 , score ,  35 , 200 );
 
 
     // ceate starship
     Starfighter star;
     star.draw(g);
 
-    scoreboard("PRESS ENTER", letter_graphics , g , 140 , 200);
-    scoreboard("TO", letter_graphics , g , 270 , 300);
-    scoreboard("PLAY GAME", letter_graphics , g , 180 , 400);
+    printMessage( g , letter_graphics , 140 , 200 , "PRESS ENTER");
+    printMessage( g , letter_graphics , 270 , 300 , "TO");
+    printMessage( g , letter_graphics , 180 , 400 , "PLAY GAME");
     g.update();
 
 
@@ -51,7 +51,7 @@ int main(int argc, char ** argv)
 
     //enemy initial.
     Enemy Enemies[32];
-    EnemyInit(Enemies, 700);
+    EnemyInit(Enemies, 90);
     for (int i = 0; i < 32; i++){
         Enemies[i].draw(g);
     }
@@ -64,7 +64,7 @@ int main(int argc, char ** argv)
             if (g.kbhit()){
                 key = g.getKey();
                 if(key == SDL_SCANCODE_RETURN){
-                    clearScore( g , 140 , 200 , 350 , 350);
+                    clearArea( g , 140 , 200 , 350 , 350);
                 }
             }
 
@@ -77,10 +77,10 @@ int main(int argc, char ** argv)
 
             key_pressed = g.getKey();
 
-            if(key_pressed == RIGHT_ARROW && star.posx <= COL_MAX - 40 && star.getLiving()){
+            if(key_pressed == RIGHT_ARROW && star.getX() <= COL_MAX - 40 && star.getState()){
                 movement = 7;
             }
-            else if(key_pressed == LEFT_ARROW && star.posx >= 10 && star.getLiving()){
+            else if(key_pressed == LEFT_ARROW && star.getX() >= 10 && star.getState()){
                 movement = -7;
             }
             else if(key_pressed == ' '){
@@ -101,7 +101,7 @@ int main(int argc, char ** argv)
 
         //move and update bullet
         updateBullet(Bullets, g, star, ROW_MAX);
-        printScore(g, score, number_graphics, 240, 50 , 35 , 200);
+        printNumber(g, number_graphics , 240, 50 , score , 35 , 200);
 
         //test for collision
         collisionTest(g, Bullets, Enemies, score, number_graphics);
@@ -119,9 +119,8 @@ int main(int argc, char ** argv)
                 }
             }else
             {
-                cout << "killing all entities" << endl;
                 lose(g, Enemies, star);
-                star.setLiving(false);
+                star.setState(false);
 
             }
         }
@@ -132,12 +131,11 @@ int main(int argc, char ** argv)
                 allDead = false;
 		}
 
-		if(allDead == true && star.getLiving() == true){
+		if(allDead == true && star.getState() == true){
             EnemyInit(Enemies, 100);
             frequency = frequency - 100;
-		}else if(allDead == true && star.getLiving() == false){
-		    cout << "YOU LOST" << endl << endl;
-		    clearScreen( ROW_MAX , COL_MAX , g);
+		}else if(allDead == true && star.getState() == false){
+		    clearArea( g, ROW_MAX , COL_MAX , 0 , 0);
             highscores( score , g ,  letter_graphics );
 		}
 

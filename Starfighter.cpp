@@ -77,15 +77,10 @@ Starfighter::Starfighter()
         }
  }
 
-Starfighter::~Starfighter()
-{
-    //dtor
-}
-
-void Starfighter::setposX(int x){
+void Starfighter::setX(int x){
         posx = x;
 }
-void Starfighter::setposY(int y){
+void Starfighter::setY(int y){
         posy = y;
 }
 int Starfighter::getX(){
@@ -94,9 +89,9 @@ int Starfighter::getX(){
 int Starfighter::getY(){
         return posy;
 }
-bool Starfighter::getLiving(){
+bool Starfighter::getState(){
         return living;
 }
-void Starfighter::setLiving(bool a){
+void Starfighter::setState(bool a){
         living = a;
 }
