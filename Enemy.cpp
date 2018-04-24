@@ -124,10 +124,12 @@
     }
     void Enemy::eraseShip(SDL_Plotter &g){
 		for(int i = 0; i < 30; i++){
-            for(int j = 0; j < 45; j++){
-                        g.plotPixel(posx + i, posy + j, 0, 0, 0);
+            for(int j = 0; j < 40; j++){
+					//cout << posx << " , " << posy << endl;
+					g.plotPixel(posx + i, posy + j, 255, 0, 0);
             }
         }
+        cout << "erased ship" << endl;
     }
 
     void Enemy::setState(bool a){
@@ -136,15 +138,13 @@
     void Enemy::kill(SDL_Plotter &g){
     	cout << "1killing" << endl;
 		state = false;
-		cout << "2killing" << endl;
+		cout << "2killing" << posx << " , " << posy << endl;
 		eraseShip(g);
 		cout << "3killing" << endl;
 		posx = 1;
 		cout << "4killing" << endl;
 		posy = 100;
 		cout << "5killing" << endl;
-		eraseShip(g);
-		cout << "6killing" << endl;
     }
 
     void Enemy::setX(int x){

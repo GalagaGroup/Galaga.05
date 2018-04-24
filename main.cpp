@@ -98,18 +98,13 @@ int main(int argc, char ** argv)
             star.moveShip(movement, g);
             star.draw(g);
         }
-        cout << "1" << endl;
 
         //move and update bullet
         updateBullet(Bullets, g, star, ROW_MAX);
         printScore(g, score, number_graphics, 240, 50 , 35 , 200);
 
-        cout << "2" << endl;
-
         //test for collision
         collisionTest(g, Bullets, Enemies, score, number_graphics);
-
-        cout << "3" << endl;
 
         //move enemies
         for(int i = 0; i < 32; i++){
@@ -117,9 +112,7 @@ int main(int argc, char ** argv)
                 //theyre dead and shouldnt be moved or diaplayed
             }
             else if(Enemies[i].getY() < ROW_MAX - 40 && Enemies[i].getY() > 50){
-                    cout << "in bounds" << endl;
                 if(framecounter % frequency == 0){
-                    cout << "frequency check" << endl;
                     Enemies[i].eraseShip(g);
                     Enemies[i].setY(Enemies[i].getY() + 10);
                     Enemies[i].draw(g);
@@ -128,6 +121,8 @@ int main(int argc, char ** argv)
             {
                 cout << "killing all entities" << endl;
                 lose(g, Enemies, star);
+                star.setLiving(false);
+
             }
         }
 
@@ -136,10 +131,12 @@ int main(int argc, char ** argv)
             if(Enemies[i].getState() == true)
                 allDead = false;
 		}
+
 		if(allDead == true && star.getLiving() == true){
             EnemyInit(Enemies, 100);
             frequency = frequency - 100;
 		}else if(allDead == true && star.getLiving() == false){
+		    cout << "YOU LOST" << endl << endl;
 		    clearScreen( ROW_MAX , COL_MAX , g);
             highscores( score , g ,  letter_graphics );
 		}

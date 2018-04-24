@@ -9,7 +9,7 @@ using namespace std;
 
 void EnemyInit(Enemy enemies[], int a){
 
-    //top left row
+    //enemy init
     for(int i = 0; i < 8; i++){
 
         enemies[i] = Enemy (20 + (30 * i), a, 2, true);
@@ -133,7 +133,6 @@ void collisionTest(SDL_Plotter &g,Bullet Bullets[], Enemy Enemies[],  int &score
                         Bullets[j].destroy(g);
                         score += 100;
                         printScore(g, score, number_graphics, 240, 50 , 35 , 200);
-                        cout << "just after " << score << endl;
                     }
                 }
             }
@@ -145,6 +144,7 @@ void lose(SDL_Plotter &g, Enemy Enemies[], Starfighter star){
         Enemies[i].kill(g);
     }
     star.setLiving(false);
+    cout << star.getLiving() << endl;
 }
 
 //string score, int letter_graphics[][25][25], SDL_Plotter &g, int x, int y
