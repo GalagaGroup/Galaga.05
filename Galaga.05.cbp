@@ -45,6 +45,7 @@
 		<Unit filename="Enemy.h" />
 		<Unit filename="GameFunctions.cpp" />
 		<Unit filename="GameFunctions.h" />
+		<Unit filename="Highscores.txt" />
 		<Unit filename="Letters.txt" />
 		<Unit filename="Numbers.txt" />
 		<Unit filename="SDL_Plotter.cpp" />

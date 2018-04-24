@@ -54,42 +54,46 @@ void numbersinit(int numbers_graphics[][25][25]);
 /*
 Precondition:
 	a string, a 3D int array passed by refrence and an SDL_Plotter object
-	which is spassed by refrence.
+	which is spassed by refrence. Two ints as well
 Postcondition:
 	The string in unchanged, the letter graphics are unchanged the Plotter
-	is changed,
+	is changed, the ints are unchanged
 Return:
 	void
 Description:
 	The score string is printed to the screen using the letters from the
-	letter graphics array to the plotter window object.
+	letter graphics array to the plotter window object. and at the coordinates
+	of the ints
 */
 void scoreboard( string , int [26][25][25] , SDL_Plotter& , int , int  );
 
 /*
 Precondition:
-	A SDL_Plotter object exists and is passed by refrence
+	A SDL_Plotter object exists and is passed by refrence as well as four ints
 Postcondition:
-	The SDL window is changed
+	The SDL window is changed the ints are unchanged
 Return:
 	void
 Description:
 	The SDL window where the score is located is painted to black
+	staring at the coordinates of the first two ints and with the size of the
+	third and fourth ints
 */
 void clearScore( SDL_Plotter& , int , int , int , int);
 
 /*
 Precondition:
-	A SDL window object exists and is passed by refrence, an int value exists,
-	a 3D int array is passed by refrence
+	A SDL window object exists and is passed by refrence, five int values
+	exist, a 3D int array is passed by refrence
 Postcondition:
 	The SDL window has the score painted ot it using the numbers from the
 	numbers array
 Return:
 	void
 Description:
-	The SDL window has the score printed to it using the fonts from the
-	Number 3D int array
+	The SDL window has the first int printed to it using the fonts from the
+	Number 3D int array with the coordinates mapped by the second and third
+	ints. The fourth and fifth ints size the clear region
 */
 void printScore( SDL_Plotter& , int  , int [][25][25] , int , int , int , int);
 
@@ -162,6 +166,18 @@ Description:
 	the two int values(x, y)
 */
 void printMessage( SDL_Plotter& , int[][25][25] , int , int , string );
+
+/*
+Precondition:
+	an int value of a SDL window and a 3D int array exist
+Postcondition:
+	The SDL window is changed the in is unchanged the array is unchanged
+Return:
+	void
+Description:
+	Prints to the screen highscores from previous playsessions on this machine
+	onto the SDL window
+*/
 
 void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25]);
 

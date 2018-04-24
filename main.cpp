@@ -51,7 +51,7 @@ int main(int argc, char ** argv)
 
     //enemy initial.
     Enemy Enemies[32];
-    EnemyInit(Enemies, 90);
+    EnemyInit(Enemies, 700);
     for (int i = 0; i < 32; i++){
         Enemies[i].draw(g);
     }
@@ -98,31 +98,38 @@ int main(int argc, char ** argv)
             star.moveShip(movement, g);
             star.draw(g);
         }
+        cout << "1" << endl;
 
         //move and update bullet
         updateBullet(Bullets, g, star, ROW_MAX);
         printScore(g, score, number_graphics, 240, 50 , 35 , 200);
 
+        cout << "2" << endl;
+
         //test for collision
         collisionTest(g, Bullets, Enemies, score, number_graphics);
+
+        cout << "3" << endl;
 
         //move enemies
         for(int i = 0; i < 32; i++){
             if(Enemies[i].getState() == false){
                 //theyre dead and shouldnt be moved or diaplayed
             }
-            else if(framecounter % frequency == 0){
-                if(Enemies[i].getY() < ROW_MAX && Enemies[i].getY() > 50){
+            else if(Enemies[i].getY() < ROW_MAX - 40 && Enemies[i].getY() > 50){
+                    cout << "in bounds" << endl;
+                if(framecounter % frequency == 0){
+                    cout << "frequency check" << endl;
                     Enemies[i].eraseShip(g);
                     Enemies[i].setY(Enemies[i].getY() + 10);
                     Enemies[i].draw(g);
-                }else{
-                    lose(g, Enemies, star);
                 }
+            }else
+            {
+                cout << "killing all entities" << endl;
+                lose(g, Enemies, star);
             }
         }
-
-
 
 		bool allDead = true;
 		for(int i = 0; i < 32; i ++){
@@ -134,7 +141,7 @@ int main(int argc, char ** argv)
             frequency = frequency - 100;
 		}else if(allDead == true && star.getLiving() == false){
 		    clearScreen( ROW_MAX , COL_MAX , g);
-            highscores( score, g ,  letter_graphics );
+            highscores( score , g ,  letter_graphics );
 		}
 
 		framecounter++;
