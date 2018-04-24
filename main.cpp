@@ -122,8 +122,7 @@ int main(int argc, char ** argv)
             }
         }
 
-        framecounter++;
-		g.update();
+
 
 		bool allDead = true;
 		for(int i = 0; i < 32; i ++){
@@ -133,7 +132,13 @@ int main(int argc, char ** argv)
 		if(allDead == true && star.getLiving() == true){
             EnemyInit(Enemies, 100);
             frequency = frequency - 100;
+		}else if(allDead == true && star.getLiving() == false){
+		    clearScreen( ROW_MAX , COL_MAX , g);
+            highscores( score, g ,  letter_graphics );
 		}
+
+		framecounter++;
+		g.update();
 
     }
     return 0;

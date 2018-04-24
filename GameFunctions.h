@@ -163,4 +163,7 @@ Description:
 */
 void printMessage( SDL_Plotter& , int[][25][25] , int , int , string );
 
+void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25]);
+
+
 #endif // FUNCTIONS_H_
