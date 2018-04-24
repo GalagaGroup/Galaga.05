@@ -57,7 +57,6 @@ void Bullet::eraseShip(SDL_Plotter &g){
 	}
 }
 void Bullet::destroy(SDL_Plotter &g){
-	cout << "bullet destroyed" << endl;
 	eraseShip(g);
 	posx = 1;
 	posy = 1;

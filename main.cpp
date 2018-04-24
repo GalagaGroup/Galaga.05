@@ -1,15 +1,17 @@
 #include <iostream>
 #include "SDL_Plotter.h"
+#include "GameFunctions.h"
 #include "Starfighter.h"
 #include "Bullet.h"
 #include "Enemy.h"
-#include "GameFunctions.h"
+
 
 using namespace std;
 
 int main(int argc, char ** argv)
 {
     char key_pressed;
+    char key;
     int ROW_MAX = 800;
     int COL_MAX = 600;
     int framecounter = 0;
@@ -26,13 +28,21 @@ int main(int argc, char ** argv)
     lettersinit(letter_graphics);
     numbersinit(number_graphics);
 
-    scoreboard("SCORE", letter_graphics , g);
-    printScore(g, score, number_graphics);
+    scoreboard("HIGHSCORE", letter_graphics , g , 180 , 15);
+    printScore(g, score, number_graphics, 240, 50 , 35 , 200);
 
 
     // ceate starship
     Starfighter star;
     star.draw(g);
+
+    scoreboard("PRESS ENTER", letter_graphics , g , 140 , 200);
+    scoreboard("TO", letter_graphics , g , 270 , 300);
+    scoreboard("PLAY GAME", letter_graphics , g , 180 , 400);
+    g.update();
+
+
+
 
     //create both bulletts fired by starfighter
     Bullet bull;
@@ -49,17 +59,28 @@ int main(int argc, char ** argv)
     //main game loop
     while (!g.getQuit())
     {
+        while (key != SDL_SCANCODE_RETURN && !g.getQuit())
+        {
+            if (g.kbhit()){
+                key = g.getKey();
+                if(key == SDL_SCANCODE_RETURN){
+                    clearScore( g , 140 , 200 , 350 , 350);
+                }
+            }
+
+
+    }
         //get input and move starship
         if(g.kbhit()){
             int movement = 0;
-            g.getKey();
+            //g.getKey();
 
             key_pressed = g.getKey();
 
-            if(key_pressed == RIGHT_ARROW && star.posx <= COL_MAX - 40){
+            if(key_pressed == RIGHT_ARROW && star.posx <= COL_MAX - 40 && star.getLiving()){
                 movement = 7;
             }
-            else if(key_pressed == LEFT_ARROW && star.posx >= 10){
+            else if(key_pressed == LEFT_ARROW && star.posx >= 10 && star.getLiving()){
                 movement = -7;
             }
             else if(key_pressed == ' '){
@@ -80,7 +101,7 @@ int main(int argc, char ** argv)
 
         //move and update bullet
         updateBullet(Bullets, g, star, ROW_MAX);
-        printScore(g, score, number_graphics);
+        printScore(g, score, number_graphics, 240, 50 , 35 , 200);
 
         //test for collision
         collisionTest(g, Bullets, Enemies, score, number_graphics);
@@ -91,11 +112,13 @@ int main(int argc, char ** argv)
                 //theyre dead and shouldnt be moved or diaplayed
             }
             else if(framecounter % frequency == 0){
-                if(Enemies[i].posy < ROW_MAX && Enemies[i].posy > 50){
+                if(Enemies[i].getY() < ROW_MAX && Enemies[i].getY() > 50){
                     Enemies[i].eraseShip(g);
-                    Enemies[i].setY(Enemies[i].posy + 10);
+                    Enemies[i].setY(Enemies[i].getY() + 10);
                     Enemies[i].draw(g);
-                }else
+                }else{
+                    lose(g, Enemies, star);
+                }
             }
         }
 
@@ -107,7 +130,7 @@ int main(int argc, char ** argv)
             if(Enemies[i].getState() == true)
                 allDead = false;
 		}
-		if(allDead == true && star.getLiving() == dead){
+		if(allDead == true && star.getLiving() == true){
             EnemyInit(Enemies, 100);
             frequency = frequency - 100;
 		}

@@ -130,6 +130,9 @@
         }
     }
 
+    void Enemy::setState(bool a){
+		state = a;
+    }
     void Enemy::kill(SDL_Plotter &g){
 		state = false;
 		eraseShip(g);
@@ -141,18 +144,23 @@
     void Enemy::setX(int x){
 		posx = x;
     }
+
 	void Enemy::setY(int y){
 		posy = y;
 	}
+
 	void Enemy::setType(int a){
 		type = a;
 	}
+
 	int Enemy::getX(){
 		return posx;
 	}
+
 	int Enemy::getY(){
 		return posy;
 	}
+
 	bool Enemy::getState(){
 		return state;
 	}

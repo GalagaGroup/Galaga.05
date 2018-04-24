@@ -2,195 +2,165 @@
 #define	FUNCTIONS_H_
 
 #include "Enemy.h"
+#include "Bullet.h"
+#include "SDL_Plotter.h"
 #include <fstream>
 #include <string>
+#include "Starfighter.h"
 
-void EnemyInit(Enemy enemies[32], int a){
+using namespace std;
 
-    //top left row
-    enemies[0] = Enemy (20, a, 2, true);
-    enemies[1] = Enemy (50, a, 2, true);
-    enemies[2] = Enemy (80, a, 2, true);
-    enemies[3] = Enemy (110, a, 2, true);
-    enemies[4] = Enemy (140, a, 2, true);
-    enemies[5] = Enemy (170, a, 2, true);
-    enemies[6] = Enemy (200, a, 2, true);
-    enemies[7] = Enemy (230, a, 2, true);
+/*
+Precondition:
+	An array of enemies of size 32 exists, an int value existts
+Postcondition:
+	The array of enemies is changed to enemies with predetermined
+	characotoristics
+Return:
+	void
+Description:
+	Instantiates the array of enemies  to a height of a on the screen
+*/
+void EnemyInit(Enemy enemies[], int a);
 
-    //top right row
-    enemies[8] = Enemy (340, a, 2, true);
-    enemies[9] = Enemy (370, a, 2, true);
-    enemies[10] = Enemy (400, a, 2, true);
-    enemies[11] = Enemy (430, a, 2, true);
-    enemies[12] = Enemy (460, a, 2, true);
-    enemies[13] = Enemy (490, a, 2, true);
-    enemies[14] = Enemy (520, a, 2, true);
-    enemies[15] = Enemy (550, a, 2, true);
+/*
+Precondition:
+	a 3D array of ints exists and is passed by refrence
+Postcondition:
+	The array is filled with the graphics of letters. the first index is the
+	number in the allphabet, the second and third numbers are the size of the
+	square graphic
+Return:
+	void
+Description:
+	Reads in  graphics from a file and saves the graphics to the array
+*/
+void lettersinit(int letters_graphics[][25][25]);
 
-    //bottom left row
-    enemies[16] = Enemy (20, a + 40, 2, true);
-    enemies[17] = Enemy (50, a + 40, 2, true);
-    enemies[18] = Enemy (80, a + 40, 2, true);
-    enemies[19] = Enemy (110, a + 40, 2, true);
-    enemies[20] = Enemy (140, a + 40, 2, true);
-    enemies[21] = Enemy (170, a + 40, 2, true);
-    enemies[22] = Enemy (200, a + 40, 2, true);
-    enemies[23] = Enemy (230, a + 40, 2, true);
+/*
+Precondition:
+	a 3D array of ints exists and is passed by refrence
+Postcondition:
+	The array is filled with the graphics of numbers. the first index is the
+	number , the second and third numbers are the size of the
+	square graphic
+Return:
+	void
+Description:
+	Reads in graphics from a file and saves the graphics to the array
+*/
+void numbersinit(int numbers_graphics[][25][25]);
 
-    //bottom right row
-    enemies[24] = Enemy (340, a + 40, 2, true);
-    enemies[25] = Enemy (370, a + 40, 2, true);
-    enemies[26] = Enemy (400, a + 40, 2, true);
-    enemies[27] = Enemy (430, a + 40, 2, true);
-    enemies[28] = Enemy (460, a + 40, 2, true);
-    enemies[29] = Enemy (490, a + 40, 2, true);
-    enemies[30] = Enemy (520, a + 40, 2, true);
-    enemies[31] = Enemy (550, a + 40, 2, true);
+/*
+Precondition:
+	a string, a 3D int array passed by refrence and an SDL_Plotter object
+	which is spassed by refrence.
+Postcondition:
+	The string in unchanged, the letter graphics are unchanged the Plotter
+	is changed,
+Return:
+	void
+Description:
+	The score string is printed to the screen using the letters from the
+	letter graphics array to the plotter window object.
+*/
+void scoreboard( string , int [26][25][25] , SDL_Plotter& , int , int  );
 
-}
+/*
+Precondition:
+	A SDL_Plotter object exists and is passed by refrence
+Postcondition:
+	The SDL window is changed
+Return:
+	void
+Description:
+	The SDL window where the score is located is painted to black
+*/
+void clearScore( SDL_Plotter& , int , int , int , int);
 
-void lettersinit(int (&letters_graphics)[26][25][25]){
-    ifstream inLetters;
-    inLetters.open("Letters.txt");
+/*
+Precondition:
+	A SDL window object exists and is passed by refrence, an int value exists,
+	a 3D int array is passed by refrence
+Postcondition:
+	The SDL window has the score painted ot it using the numbers from the
+	numbers array
+Return:
+	void
+Description:
+	The SDL window has the score printed to it using the fonts from the
+	Number 3D int array
+*/
+void printScore( SDL_Plotter& , int  , int [][25][25] , int , int , int , int);
 
-    for(int i = 0; i < 26; i++){
-        for(int j = 0; j < 25; j++){
-            for(int k = 0; k < 25; k++){
-                inLetters >> letters_graphics[i][j][k];
-            }
-        }
-    }
-    inLetters.close();
-    cout << "letter initialized" << endl;
-}
+/*
+Precondition:
+	two int values exist as well as a SDL plotter object by refrence
+Postcondition:
+	The plotter window is changed
+Return:
+	void
+Description:
+	The entire window is painted black the two int values are the max
+	values of the window(row and col)
+*/
+void clearScreen( int , int , SDL_Plotter& );
 
-void numbersinit(int (&numbers_graphics)[10][25][25]){
-    ifstream inNumbers;
-    inNumbers.open("Numbers.txt");
+/*
+Precondition:
+	An array of bullets, a plotter window, a starfighter and an int exists
+Postcondition:
+	The plotter window is changed, the array of bullets is changed, the
+	starfighter object is unchanged, the int val is unchaged
+Return:
+	void
+Description:
+	If the bullett is within the bounds of the window it is moved upward on
+	the window, otherwise it is destroyed
+*/
+void updateBullet( Bullet[] , SDL_Plotter& , Starfighter , int );
 
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 25; j++){
-            for(int k = 0; k < 25; k++){
-                inNumbers >> numbers_graphics[i][j][k];
-            }
-        }
-    }
-    inNumbers.close();
-    cout << "numbers initialised" << endl;
-}
+/*
+Precondition:
+	An SDL window an array of bullets, an array of enemies, an int, and a
+	3D array of ints exists
+Postcondition:
+	The plotter window, the array of bullets, the array of enemies,
+	the score are all changed, the 3D int array in unchanged
+Return:
+	void
+Description:
+	The collision of the bullet, and all of the enemies is tested, if it is
+	detected then the bullet is destroyed as well as the enemy and the score is
+	incremented
+*/
+void collisionTest( SDL_Plotter& , Bullet[] , Enemy[] ,  int& , int[][25][25] );
 
-void scoreboard(string score, int (&letter_graphics)[26][25][25], SDL_Plotter &g){
-    for(int i = 0; i < score.length(); i++){
-        string letter;
-        int intletter;
-        letter = score.substr(i, 1);
-        if (letter == " "){
-            //no graphic needed for space
-        }else{
-            intletter = int(letter.c_str()[0]);
-            intletter = (intletter - 65);
-            cout << letter << " " << intletter << endl;
+/*
+Precondition:
+	A plotter window an array of enemies and a starfighter object exists
+Postcondition:
+	The SDL window is cahanged, the array of enemies is changed,
+	the starfighter object is changed
+Return:
+	void
+Description:
+	All of the enemies are killed as well as the starfighter
+*/
+void lose( SDL_Plotter& , Enemy[] , Starfighter );
 
-            for(int j = 0; j < 25; j++){
-                for (int k = 0; k < 25;k++){
-                    if(letter_graphics[intletter][k][j] == 1){
-                        g.plotPixel(10 + j + (i * 30), 15 + k, 255, 0, 0);
-                    }
-                }
-            }
-        }
-    }
-}
-
-void clearScore(SDL_Plotter &g){
-    for(int i = 0; i < 200; i++){
-        for(int j = 0; j < 35; j++){
-            g.plotPixel(190 + i , 15 + j, 0,0,0);
-        }
-    }
-}
-
-void printScore(SDL_Plotter &g, int score, int numbers_graphics[][25][25]){
-    clearScore(g);
-    int singlenum;
-    string str_score = to_string(score);
-    string element;
-    int counter = 0;
-
-    for(int i = 0; i < str_score.length(); i ++){
-        counter++;
-        element = str_score.substr(i,1);
-        singlenum = element.c_str()[0] - 48;
-        for(int i = 0; i < 25; i++){
-            for(int j = 0; j < 25; j++){
-                if(numbers_graphics[singlenum][i][j] == 1){
-                    g.plotPixel(190 + j + (counter * 30), 15 + i , 255 , 0 , 0 );
-                }
-            }
-        }
-    }
-}
-
-void clearScreen(int ROW_MAX, int COL_MAX, SDL_Plotter &g){
-    for(int i = 0; i < ROW_MAX; i++){
-        for(int j = 0; j < COL_MAX ; j++){
-            g.plotPixel(j, i, 0, 0, 0);
-        }
-    }
-}
-
-void updateBullet(Bullet Bullets[], SDL_Plotter &g, Starfighter star, int ROW_MAX){
-    for(int i = 0; i < 2; i++){
-        if(Bullets[i].getState() == true){
-            if(Bullets[i].getY() > 100 && Bullets[i].getY() < ROW_MAX - 10 && Bullets[i].getX() > 15){
-            Bullets[i].eraseShip(g);
-            Bullets[i].setY(Bullets[i].getY() - 1);
-            Bullets[i].draw(g);
-            star.draw(g);
-            }else{
-                Bullets[i].destroy(g);
-            }
-        }
-    }
-}
-
-void collisionTest(SDL_Plotter &g,Bullet Bullets[], Enemy Enemies[],  int &score, int number_graphics[][25][25]){
-    for(int i = 0; i < 32; i++){
-            for(int j = 0; j < 2; j++){
-                if(Bullets[j].getY() > Enemies[i].getY() && Bullets[j].getY() < Enemies[i].getY() + 30){
-                    if(Bullets[j].getX() > Enemies[i].getX() && Bullets[j].getX() < Enemies[i].getX() + 30){
-                        //bullet colided
-                        Enemies[i].kill(g);
-                        Bullets[j].destroy(g);
-                        score += 100;
-                        printScore(g, score, number_graphics);
-                        cout << "just after " << score << endl;
-                    }
-                }
-            }
-        }
-}
-
-void loose(SDL_Plottter &g, Enemy Enemies[], Starfighter star){
-    for(int i = 0; i < 32; i++){
-        Enemies[i].kill(g);
-    }
-    star.setLiving(false);
-
-}
-
-void printMessage(SDL_Plotter &g, letter_graphics[][25][25], int x, int y, string message){
-    for(int i = 0; i < 25; i ++){
-        for(int j = 0; j < 25; j++){
-            for(itn )
-        }
-    }
-}
-
-
-
-
-
-
+/*
+Precondition:
+	an SDL window object, a 3D in array two int values and a string exist
+Postcondition:
+	The SDL window is changed, the int array is unchanged, the two int values
+	as well as the string are unchanged
+Return:
+	voiid
+Description:
+	A message is printed to the window, using the font from the letter array at
+	the two int values(x, y)
+*/
+void printMessage( SDL_Plotter& , int[][25][25] , int , int , string );
 
 #endif // FUNCTIONS_H_

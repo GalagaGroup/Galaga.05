@@ -5,23 +5,26 @@
 
 class Enemy{
 public:
-	Enemy();
+private:
 	int posx;
 	int posy;
 	int type;
 	int health;
+	bool state;
+public:
+	Enemy();
 	int getX();
 	int getY();
+	bool getState();
+	void setState(bool a);
 	char pic[34][30];
 	void setX(int x);
 	void setY(int y);
-	bool state = true;
 	void setType(int a);
 	void kill(SDL_Plotter &g);
 	void draw(SDL_Plotter &g);
-	bool getState();
-	Enemy(int x, int y, int type, bool);
 	void eraseShip(SDL_Plotter &g);
+	Enemy(int x, int y, int type, bool);
     void moveShip(int x, int y, SDL_Plotter &g);
 };
 

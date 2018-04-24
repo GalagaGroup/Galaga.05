@@ -43,6 +43,7 @@
 		<Unit filename="Bullet.h" />
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
+		<Unit filename="GameFunctions.cpp" />
 		<Unit filename="GameFunctions.h" />
 		<Unit filename="Letters.txt" />
 		<Unit filename="Numbers.txt" />
