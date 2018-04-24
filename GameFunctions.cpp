@@ -144,22 +144,22 @@ void lose(SDL_Plotter &g, Enemy Enemies[], Starfighter star){
         Enemies[i].kill(g);
     }
     star.setLiving(false);
-    cout << star.getLiving() << endl;
 }
 
 //string score, int letter_graphics[][25][25], SDL_Plotter &g, int x, int y
 
 void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25]){
     string user;
-    int existingscore;
+    string existingscore;
     ofstream out;
     ifstream in;
     in.open("Highscores.txt");
     int yval = 200;
     if(in){
         while(in >> user >> existingscore){
+            cout << user << ", " << existingscore << endl;
             scoreboard( user , letter_graphics , g , 140 , yval);
-            scoreboard( to_string(existingscore) , letter_graphics , g , 140 , yval);
+            scoreboard( existingscore , letter_graphics , g , 140 , yval);
             yval += 100;
         }
     }

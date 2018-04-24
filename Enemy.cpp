@@ -126,7 +126,7 @@
 		for(int i = 0; i < 30; i++){
             for(int j = 0; j < 40; j++){
 					//cout << posx << " , " << posy << endl;
-					g.plotPixel(posx + i, posy + j, 255, 0, 0);
+					g.plotPixel(posx + i, posy + j, 0, 0, 0);
             }
         }
         cout << "erased ship" << endl;
