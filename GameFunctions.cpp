@@ -62,6 +62,7 @@ void printMessage(SDL_Plotter &g, int letter_graphics[][25][25] , int x , int y 
 
             for(int j = 0; j < 25; j++){
                 for (int k = 0; k < 25;k++){
+                        //cout << "Printing letter: " << intletter << endl;
                     if(letter_graphics[intletter][k][j] == 1){
                         g.plotPixel(x + j + (i * 30), y + k, 255, 0, 0);
                     }
@@ -79,6 +80,7 @@ void clearArea(SDL_Plotter &g, int x , int y , int wide , int height){
     }
 }
 
+/*
 void printNumber( SDL_Plotter &g , int numbers_graphics[][25][25] , int x , int y , int number,  int wide , int height){
     clearArea(g , x, y , wide , height);
     int singlenum;
@@ -93,12 +95,14 @@ void printNumber( SDL_Plotter &g , int numbers_graphics[][25][25] , int x , int 
         for(int i = 0; i < 25; i++){
             for(int j = 0; j < 25; j++){
                 if(numbers_graphics[singlenum][i][j] == 1){
+                        //cout << "printing score: " << singlenum << endl;
                     g.plotPixel(240 + j + (counter * 30), 50 + i , 255 , 0 , 0 );
                 }
             }
         }
     }
 }
+*/
 
 void printNumber( SDL_Plotter &g , int numbers_graphics[][25][25] , int x , int y , int number){
     int singlenum;
@@ -113,7 +117,8 @@ void printNumber( SDL_Plotter &g , int numbers_graphics[][25][25] , int x , int 
         for(int i = 0; i < 25; i++){
             for(int j = 0; j < 25; j++){
                 if(numbers_graphics[singlenum][i][j] == 1){
-                    g.plotPixel(240 + j + (counter * 30), 50 + i , 255 , 0 , 0 );
+                        //cout << "printing number: " << singlenum << endl;
+                    g.plotPixel(x + j + (counter * 30), y + i , 255 , 0 , 0 );
                 }
             }
         }
@@ -144,7 +149,8 @@ void collisionTest(SDL_Plotter &g,Bullet Bullets[], Enemy Enemies[],  int &score
                         Enemies[i].kill(g);
                         Bullets[j].destroy(g);
                         score += 100;
-                        printNumber(g, number_graphics, 240, 50 , score , 35 , 200);
+                        clearArea( g , 240 , 50 , 35 , 200);
+                        printNumber(g, number_graphics, 240, 50 , score);
                     }
                 }
             }
@@ -158,21 +164,26 @@ void lose(SDL_Plotter &g, Enemy Enemies[], Starfighter star){
     star.setState(false);
 }
 
-//string score, int letter_graphics[][25][25], SDL_Plotter &g, int x, int y
+//SDL_Plotter &g , int numbers_graphics[][25][25] , int x , int y , int number
 
-void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25]){
+void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25] , int number_graphics[][25][25]){
     string user;
-    string existingscore;
+    int existingscore;
+    int oldscore;
     ofstream out;
     ifstream in;
     in.open("Highscores.txt");
     int yval = 200;
+    if(!in){
+        out.open("Highscores.txt");
+        out.close();
+        in.open("Highscores.txt");
+    }
     if(in){
         while(in >> user >> existingscore){
-            cout << user << ", " << existingscore << endl;
-            printMessage( g , letter_graphics , 140 , yval , user);
-            //scoreboard( existingscore , letter_graphics , g , 140 , yval);
-            yval += 100;
+            printMessage( g , letter_graphics , 130 , yval , user);
+            printNumber( g , number_graphics , 270 , yval , existingscore );
+            yval += 50;
         }
     }
 }

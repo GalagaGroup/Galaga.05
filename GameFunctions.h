@@ -81,7 +81,7 @@ Description:
 */
 void printNumber( SDL_Plotter& , int [][25][25] , int , int , int , int , int);
 
-void printNumber( SDL_Plotter &g , int numbers_graphics[][25][25] , int number );
+void printNumber( SDL_Plotter &g , int numbers_graphics[][25][25] , int x, int y, int number );
 
 /*
 Precondition:
@@ -152,7 +152,7 @@ Description:
 	onto the SDL window
 */
 
-void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25]);
+void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25] , int number_graphics[][25][25]);
 
 
 #endif // FUNCTIONS_H_

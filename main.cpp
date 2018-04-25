@@ -16,6 +16,7 @@ int main(int argc, char ** argv)
     int COL_MAX = 600;
     int framecounter = 0;
     int score = 0;
+    bool endGame = false;
     int frequency  = 700;
     static int letter_graphics[26][25][25];
     static int number_graphics[10][25][25];
@@ -29,7 +30,8 @@ int main(int argc, char ** argv)
     numbersinit(number_graphics);
 
     printMessage( g , letter_graphics ,  180 , 15 , "HIGHSCORE");
-    printNumber( g , number_graphics , 240 , 50 , score ,  35 , 200 );
+    clearArea( g , 240 , 50 , 35 , 200);
+    printNumber( g , number_graphics , 240 , 50 , score);
 
 
     // ceate starship
@@ -51,13 +53,14 @@ int main(int argc, char ** argv)
 
     //enemy initial.
     Enemy Enemies[32];
-    EnemyInit(Enemies, 90);
+    EnemyInit(Enemies, 700);
     for (int i = 0; i < 32; i++){
         Enemies[i].draw(g);
     }
 
     //main game loop
-    while (!g.getQuit())
+    while (!g.getQuit()){
+    while (!g.getQuit() && !endGame)
     {
         while (key != SDL_SCANCODE_RETURN && !g.getQuit())
         {
@@ -101,7 +104,8 @@ int main(int argc, char ** argv)
 
         //move and update bullet
         updateBullet(Bullets, g, star, ROW_MAX);
-        printNumber(g, number_graphics , 240, 50 , score , 35 , 200);
+        clearArea( g , 240 , 50 , 35 , 200 );
+        printNumber( g, number_graphics , 240, 50 , score );
 
         //test for collision
         collisionTest(g, Bullets, Enemies, score, number_graphics);
@@ -135,13 +139,25 @@ int main(int argc, char ** argv)
             EnemyInit(Enemies, 100);
             frequency = frequency - 100;
 		}else if(allDead == true && star.getState() == false){
-		    clearArea( g, ROW_MAX , COL_MAX , 0 , 0);
-            highscores( score , g ,  letter_graphics );
+		    endGame = true;
 		}
 
 		framecounter++;
 		g.update();
 
     }
+
+    bool keepPlaying = false;
+
+    do{
+        clearArea( g, ROW_MAX , COL_MAX , 0 , 0);
+        highscores( score , g ,  letter_graphics , number_graphics);
+        if(g.kbhit()){
+            keepPlaying = true;
+        }
+        g.update();
+    }while(!g.getQuit() && !keepPlaying);
+
+}
     return 0;
 }
