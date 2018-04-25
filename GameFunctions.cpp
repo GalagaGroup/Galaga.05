@@ -172,6 +172,7 @@ void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25] , int
     int oldscore;
     ofstream out;
     ifstream in;
+
     in.open("Highscores.txt");
     int yval = 200;
     if(!in){
