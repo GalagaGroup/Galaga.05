@@ -473,9 +473,9 @@
 	"Bullet.h"
 	"Enemy.h"
 
-1524091140 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl_plotter.h
+1524623713 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl_plotter.h
 	<SDL2/SDL.h>
-	<SDL2/SDL_mixer.h>
+	<SDL_mixer.h>
 	<string.h>
 	<iostream>
 	<string>
@@ -1236,10 +1236,118 @@
 	<string>
 	"Starfighter.h"
 
-1524621487 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\gamefunctions.cpp
+1524622985 source:c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\gamefunctions.cpp
 	<fstream>
 	<string>
 	"Enemy.h"
 	"Starfighter.h"
 	"GameFunctions.h"
+
+1508776368 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_config.h
+	"SDL_platform.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\begin_code.h
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\close_code.h
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1519915128 c:\users\markf\google drive\baylor\semeter 2\csi 1430\group project\galaga.05\sdl\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
 

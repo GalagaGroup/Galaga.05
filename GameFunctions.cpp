@@ -172,6 +172,8 @@ void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25] , int
     int oldscore;
     ofstream out;
     ifstream in;
+    string playernames[3];
+    int playerscores[3];
 
     in.open("Highscores.txt");
     int yval = 200;
@@ -181,11 +183,37 @@ void highscores(int score, SDL_Plotter &g , int letter_graphics [][25][25] , int
         in.open("Highscores.txt");
     }
     if(in){
-        while(in >> user >> existingscore){
-            printMessage( g , letter_graphics , 130 , yval , user);
-            printNumber( g , number_graphics , 270 , yval , existingscore );
-            yval += 50;
+        for(int i = 0; i < 3; i++){
+            in >> playernames[i];
+            in >> playerscores[i];
+
+            if (score > playerscores[i]){
+                if(i < 2){
+                    int scoreholder = playerscores[i];
+                    string nameholder = playernames[i];
+                    playerscores[i] = score;
+
+                    cout << "CONGRADULATIONS! You Made a top score!" << endl;
+                    cout << "Please Enter Your Username : " << endl;
+                    string username;
+                    cin >> username;
+
+                    playernames[i] = username;
+
+                }else{
+                }
+
+            }
+        printMessage( g , letter_graphics , 130 , yval , user);
+        printNumber( g , number_graphics , 270 , yval , existingscore );
+        yval += 50;
         }
     }
 }
 
+
+/*
+    printMessage( g , letter_graphics , 130 , yval , user);
+            printNumber( g , number_graphics , 270 , yval , existingscore );
+            yval += 50;
+*/
